@@ -163,6 +163,7 @@ abstract class WwTextFieldBase extends StatelessWidget {
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w500,
               ),
+
               // border: OutlineInputBorder(
               //   borderRadius: BorderRadius.circular(8),
               //   borderSide: BorderSide(color: AppColors.primary),

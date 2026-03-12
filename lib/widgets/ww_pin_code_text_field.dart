@@ -21,10 +21,7 @@ class WwPinCodeField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return alignment != null
-        ? Align(
-            alignment: alignment!,
-            child: _buildPinField(context),
-          )
+        ? Align(alignment: alignment!, child: _buildPinField(context))
         : _buildPinField(context);
   }
 
@@ -43,6 +40,8 @@ class WwPinCodeField extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         spacing: 8.w,
         borderWidth: 1.5,
+        fillColor: Colors.white,
+        filledFillColor: Colors.white,
         borderColor: const Color(0xFFE8ECEF),
         focusedBorderColor: theme.primaryColor,
         textStyle: theme.textTheme.displayMedium?.copyWith(

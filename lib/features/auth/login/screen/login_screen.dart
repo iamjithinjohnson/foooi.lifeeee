@@ -18,6 +18,7 @@ class LoginScreen extends GetView<LoginController> {
         children: [
           // Background Image
           Positioned.fill(
+            // top: -300,
             child: Image.asset(AssetsImage.bg_1, fit: BoxFit.cover),
           ),
 

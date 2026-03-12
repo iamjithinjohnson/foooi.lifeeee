@@ -22,6 +22,13 @@ class AppTheme {
           height: 1.1,
           fontFamily: 'PP Cirka',
         ),
+        displayMedium: TextStyle(
+          fontSize: 32.sp,
+          fontWeight: FontWeight.w700,
+          color: const Color(0xFF3F2109), // Brownish color from image
+          height: 1.1,
+          fontFamily: 'PP Cirka',
+        ),
         // Social Button Text
         labelLarge: TextStyle(
           fontSize: 16.sp,
@@ -29,16 +36,9 @@ class AppTheme {
           color: Colors.black,
         ),
         // Divider "or"
-        bodyMedium: TextStyle(
-          fontSize: 14.sp,
-          color: Colors.black,
-        ),
+        bodyMedium: TextStyle(fontSize: 14.sp, color: Colors.black),
         // Footer text
-        bodySmall: TextStyle(
-          fontSize: 12.sp,
-          height: 1.5,
-          color: Colors.black,
-        ),
+        bodySmall: TextStyle(fontSize: 12.sp, height: 1.5, color: Colors.black),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(

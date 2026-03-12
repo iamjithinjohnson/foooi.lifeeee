@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:foi/utils/assets/svg_assets.dart';
 import 'package:foi/widgets/ww_textfield/text_field_base.dart';
 
 class WwTextFieldPhone extends WwTextFieldBase {
@@ -30,10 +28,12 @@ class WwTextFieldPhone extends WwTextFieldBase {
     super.enableBorder,
     super.fillColor,
     super.enable,
+    super.enableFocusBorder,
   }) : super(
          keyboardType: TextInputType.phone,
          autovalidateMode: AutovalidateMode.onUserInteraction,
-         prefixIcon: prefixCustom ?? SvgPicture.asset(AssetsSvg.phoneOutline),
+         prefixIcon: null,
+         //  prefixIcon: prefixCustom ?? SvgPicture.asset(AssetsSvg.phoneOutline),
          inputFormatters: [
            LengthLimitingTextInputFormatter(phoneMaxLength),
            // FilteringTextInputFormatter.allow(

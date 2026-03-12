@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../../../utils/routes/app_routes.dart';
 
 class LoginController extends GetxController {
   void onGoogleSignIn() {
@@ -10,6 +11,6 @@ class LoginController extends GetxController {
   }
 
   void onContinueWithPhone() {
-    // Implement Phone Number Sign In
+    Get.toNamed(Routes.PHONE);
   }
 }
