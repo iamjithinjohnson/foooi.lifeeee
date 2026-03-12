@@ -8,6 +8,7 @@ class WwPrimaryButton extends StatelessWidget {
   final double? width;
   final double? height;
   final bool isLoading;
+  final double? borderRadius;
 
   const WwPrimaryButton({
     super.key,
@@ -17,6 +18,7 @@ class WwPrimaryButton extends StatelessWidget {
     this.width,
     this.height,
     this.isLoading = false,
+    this.borderRadius,
   });
 
   @override
@@ -27,13 +29,12 @@ class WwPrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: color ?? const Color(0xFF00A370), // Theme Green
+          backgroundColor: color ?? Colors.black, // Default to Black for Login
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(borderRadius ?? 30.r),
           ),
-          elevation: 2,
-          shadowColor: Colors.black.withAlpha(50),
+          elevation: 0,
         ),
         child: isLoading
             ? SizedBox(
@@ -49,7 +50,7 @@ class WwPrimaryButton extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
-                  letterSpacing: 0.5,
+                  color: Colors.white,
                 ),
               ),
       ),
