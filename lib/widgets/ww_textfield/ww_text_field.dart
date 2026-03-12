@@ -30,5 +30,7 @@ class WwTextField extends WwTextFieldBase {
     super.enable,
     super.onFieldSubmitted,
     super.onTap,
+    super.textAlign,
+    super.style,
   });
 }

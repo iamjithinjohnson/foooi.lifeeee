@@ -35,6 +35,8 @@ abstract class WwTextFieldBase extends StatelessWidget {
   final Function(String)? onFieldSubmitted;
   final AutovalidateMode? autovalidateMode;
   final bool enable;
+  final TextAlign textAlign;
+  final TextStyle? style;
   const WwTextFieldBase({
     super.key,
     this.title,
@@ -68,6 +70,8 @@ abstract class WwTextFieldBase extends StatelessWidget {
     this.onFieldSubmitted,
     this.autovalidateMode,
     this.enable = true,
+    this.textAlign = TextAlign.start,
+    this.style,
   });
 
   @override
@@ -123,7 +127,8 @@ abstract class WwTextFieldBase extends StatelessWidget {
             validator: validator,
             autovalidateMode: autovalidateMode,
             maxLength: maxLength ?? 50,
-            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
+            textAlign: textAlign,
+            style: style ?? TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             autofillHints: autofillHints,
 
             // style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),

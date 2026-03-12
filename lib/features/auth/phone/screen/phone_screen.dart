@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../../utils/assets/image_assets.dart';
 import '../../../../widgets/ww_auth_background.dart';
 import '../../../../widgets/ww_country_picker/ww_country_picker_auth.dart';
 import '../controller/phone_controller.dart';

@@ -5,6 +5,8 @@ import '../../features/auth/phone/binding/phone_binding.dart';
 import '../../features/auth/phone/screen/phone_screen.dart';
 import '../../features/auth/otp/binding/otp_binding.dart';
 import '../../features/auth/otp/screen/otp_screen.dart';
+import '../../features/auth/setup_profile/binding/setup_profile_binding.dart';
+import '../../features/auth/setup_profile/screen/setup_profile_screen.dart';
 import 'app_routes.dart';
 
 class Nav {
@@ -23,6 +25,11 @@ class Nav {
       name: Routes.OTP,
       page: () => const OtpScreen(),
       binding: OtpBinding(),
+    ),
+    GetPage(
+      name: Routes.SETUP_PROFILE,
+      page: () => const SetupProfileScreen(),
+      binding: SetupProfileBinding(),
     ),
   ];
 }

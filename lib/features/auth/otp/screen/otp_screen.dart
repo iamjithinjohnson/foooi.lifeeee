@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../../utils/assets/image_assets.dart';
 import '../../../../widgets/ww_auth_background.dart';
 import '../../../../widgets/ww_pin_code_text_field.dart';
 import '../controller/otp_controller.dart';
