@@ -3,4 +3,5 @@ class AssetsImage {
 
   static const String bg_1 = 'assets/images/bg_1.png';
   static const String holy_gif = 'assets/images/holy.gif';
+  static const String bg_2 = 'assets/images/bg_2.png';
 }

@@ -97,7 +97,7 @@ dependencies:
 
 
   # --- App Lifecycle & Notifications ---
-  flutter_local_notifications: ^20.0.0      # Local (on-device) notifications
+  # flutter_local_notifications: ^20.0.0      # Local (on-device) notifications
   app_links: ^7.0.0                        # Deep linking support
   url_launcher: ^6.3.2                     # Open external URLs, emails, SMS
   upgrader: ^12.5.0                        # Alert users if update is available

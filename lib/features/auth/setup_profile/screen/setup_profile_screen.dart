@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 import '../../../../utils/assets/image_assets.dart';
 import '../../../../widgets/ww_auth_background.dart';
@@ -276,7 +277,8 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
                   padding: EdgeInsets.only(bottom: 12.h),
                   child: Obx(
                     () => GestureDetector(
-                      onTap: () => controller.selectedDenomination.value = denom,
+                      onTap: () =>
+                          controller.selectedDenomination.value = denom,
                       child: Container(
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(vertical: 20.h),
@@ -633,6 +635,27 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
         Text(
           'Lord’s Light will shine upon you',
           style: TextStyle(fontSize: 16.sp, color: const Color(0xFF3F2109)),
+        ),
+        SizedBox(height: 40.h),
+        GestureDetector(
+          onTap: () => Get.offAllNamed(Routes.HOME),
+          child: Container(
+            width: 200.w,
+            padding: EdgeInsets.symmetric(vertical: 12.h),
+            decoration: BoxDecoration(
+              color: const Color(0xFF2B5AE1),
+              borderRadius: BorderRadius.circular(30.r),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              'Enter',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ],
     );
