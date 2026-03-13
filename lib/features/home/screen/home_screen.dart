@@ -77,31 +77,31 @@ class HomeScreen extends GetView<HomeController> {
             context,
           ).textTheme.bodySmall?.copyWith(color: Colors.grey),
           items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.volunteer_activism_outlined),
-              activeIcon: Icon(Icons.volunteer_activism),
-              label: 'Pray',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.church_outlined),
-              activeIcon: Icon(Icons.church),
-              label: 'Church',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book_outlined),
-              activeIcon: Icon(Icons.menu_book),
-              label: 'Library',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              activeIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          activeIcon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.self_improvement_outlined),
+          activeIcon: Icon(Icons.self_improvement),
+          label: 'Pray',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.groups_outlined),
+          activeIcon: Icon(Icons.groups),
+          label: 'Grow',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.menu_book_outlined),
+          activeIcon: Icon(Icons.menu_book),
+          label: 'Library',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline),
+          activeIcon: Icon(Icons.person),
+          label: 'Profile',
+        ),
           ],
         ),
       ),
