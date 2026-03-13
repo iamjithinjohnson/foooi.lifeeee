@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../widgets/ww_auth_background.dart';
+import '../../../../widgets/ww_gradient_button.dart';
 import '../../../../widgets/ww_pin_code_text_field.dart';
 import '../controller/otp_controller.dart';
 
@@ -46,27 +47,9 @@ class OtpScreen extends GetView<OtpController> {
                   SizedBox(height: 40.h),
 
                   // Confirm Button with Gradient
-                  GestureDetector(
+                  WwGradientButton(
                     onTap: controller.onConfirm,
-                    child: Container(
-                      width: double.infinity,
-                      height: 56.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.r),
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF2B5AE1), Color(0xFF8A9A5B)],
-                        ),
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Confirm',
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    text: 'Confirm',
                   ),
                 ],
               ),

@@ -5,8 +5,7 @@ class HomeController extends GetxController {
   var bottomNavIndex = 0.obs;
 
   final List<String> moods = ['Happy', 'Sad', 'Anxious', 'Tired', 'Angry'];
-  final List<String> moodEmojis = ['😊', '😔', '😟', '😴', '😡'];
-
+  
   void selectMood(int index) {
     selectedMoodIndex.value = index;
   }

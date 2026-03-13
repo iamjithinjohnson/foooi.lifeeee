@@ -4,6 +4,7 @@ import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 import '../../../../utils/assets/image_assets.dart';
 import '../../../../widgets/ww_auth_background.dart';
+import '../../../../widgets/ww_gradient_button.dart';
 import '../../../../widgets/ww_textfield/ww_text_field.dart';
 import '../controller/setup_profile_controller.dart';
 
@@ -108,27 +109,9 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
           Expanded(child: content),
           // const Spacer(flex: 3),
           if (showButton)
-            GestureDetector(
+            WwGradientButton(
               onTap: onButtonPressed,
-              child: Container(
-                width: double.infinity,
-                height: 56.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.r),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF2B5AE1), Color(0xFF8A9A5B)],
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  buttonText,
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              text: buttonText,
             ),
           SizedBox(height: 40.h),
         ],

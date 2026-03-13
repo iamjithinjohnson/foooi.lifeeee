@@ -18,24 +18,36 @@ class PodcastsSection extends StatelessWidget {
         children: [
           Text(
             'PODCASTS',
-            style: TextStyle(
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF3F2109).withOpacity(0.6),
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
             ),
           ),
           Text(
             'Listen and Learn',
-            style: TextStyle(
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontSize: 22.sp,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF3F2109),
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           SizedBox(height: 20.h),
-          _buildPodcastItem('If life feels unstable, you’re not failing', '4 min'),
-          _buildPodcastItem('If life feels unstable, you’re not failing', '4 min'),
-          _buildPodcastItem('If life feels unstable, you’re not failing', '4 min'),
+          _buildPodcastItem(
+            context,
+            'If life feels unstable, you’re not failing',
+            '4 min',
+          ),
+          _buildPodcastItem(
+            context,
+            'If life feels unstable, you’re not failing',
+            '4 min',
+          ),
+          _buildPodcastItem(
+            context,
+            'If life feels unstable, you’re not failing',
+            '4 min',
+          ),
           SizedBox(height: 16.h),
           Container(
             width: double.infinity,
@@ -59,7 +71,11 @@ class PodcastsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildPodcastItem(String title, String duration) {
+  Widget _buildPodcastItem(
+    BuildContext context,
+    String title,
+    String duration,
+  ) {
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
       child: Row(
@@ -82,10 +98,9 @@ class PodcastsSection extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black,
                   ),
                 ),
                 Text(

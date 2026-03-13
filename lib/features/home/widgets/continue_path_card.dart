@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/assets/image_assets.dart';
 
 class ContinuePathCard extends StatelessWidget {
   const ContinuePathCard({super.key});
@@ -11,10 +12,9 @@ class ContinuePathCard extends StatelessWidget {
       children: [
         Text(
           'Continue your Path',
-          style: TextStyle(
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
-            color: Colors.black,
           ),
         ),
         SizedBox(height: 16.h),
@@ -24,7 +24,7 @@ class ContinuePathCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.r),
             image: const DecorationImage(
-              image: AssetImage('assets/images/bg_1.png'), // Should be a path background
+              image: AssetImage(AssetsImage.continueYourPath),
               fit: BoxFit.cover,
             ),
           ),
@@ -70,7 +70,11 @@ class ContinuePathCard extends StatelessWidget {
                         color: Colors.white24,
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(Icons.arrow_forward, color: Colors.white, size: 20.w),
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                        size: 20.w,
+                      ),
                     ),
                   ],
                 ),
@@ -81,10 +85,7 @@ class ContinuePathCard extends StatelessWidget {
                     SizedBox(width: 4.w),
                     Text(
                       '7 min today',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        color: Colors.white70,
-                      ),
+                      style: TextStyle(fontSize: 12.sp, color: Colors.white70),
                     ),
                   ],
                 ),

@@ -17,42 +17,46 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const HomeHeader(),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 24.h),
-                  const DailyCheckIn(),
-                  SizedBox(height: 32.h),
-                  const QuickActions(),
-                  SizedBox(height: 32.h),
-                  const ScriptureCard(),
-                  SizedBox(height: 32.h),
-                  const ContinuePathCard(),
-                  SizedBox(height: 32.h),
-                  const PodcastsSection(),
-                  SizedBox(height: 32.h),
-                  const PrayerSection(),
-                  SizedBox(height: 32.h),
-                  const PrayerStreak(),
-                  SizedBox(height: 100.h), // Space for bottom nav
-                ],
-              ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: Stack(
+        children: [
+          const HomeHeader(),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 190.h), // Height to match header content area
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const DailyCheckIn(),
+                      SizedBox(height: 32.h),
+                      const QuickActions(),
+                      SizedBox(height: 32.h),
+                      const ScriptureCard(),
+                      SizedBox(height: 32.h),
+                      const ContinuePathCard(),
+                      SizedBox(height: 32.h),
+                      const PodcastsSection(),
+                      SizedBox(height: 32.h),
+                      const PrayerSection(),
+                      SizedBox(height: 32.h),
+                      const PrayerStreak(),
+                      SizedBox(height: 100.h), // Space for bottom nav
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-      bottomNavigationBar: _buildBottomNav(),
+      bottomNavigationBar: _buildBottomNav(context),
     );
   }
 
-  Widget _buildBottomNav() {
+  Widget _buildBottomNav(BuildContext context) {
     return Obx(
       () => Container(
         decoration: BoxDecoration(
@@ -63,16 +67,15 @@ class HomeScreen extends GetView<HomeController> {
           currentIndex: controller.bottomNavIndex.value,
           onTap: controller.changeTab,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: const Color(0xFF2B5AE1),
+          selectedItemColor: Theme.of(context).primaryColor,
           unselectedItemColor: Colors.grey,
-          selectedLabelStyle: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w500,
+          selectedLabelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+            fontWeight: FontWeight.w600,
+            color: Theme.of(context).primaryColor,
           ),
-          unselectedLabelStyle: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w500,
-          ),
+          unselectedLabelStyle: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: Colors.grey),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),

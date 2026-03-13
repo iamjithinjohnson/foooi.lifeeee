@@ -8,19 +8,19 @@ class PrayerSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _buildPrayerRequests(),
+        _buildPrayerRequests(context),
         SizedBox(height: 20.h),
         _buildAnsweredPrayer(),
       ],
     );
   }
 
-  Widget _buildPrayerRequests() {
+  Widget _buildPrayerRequests(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC),
+        color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
@@ -28,14 +28,20 @@ class PrayerSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.front_hand, color: Colors.orange, size: 16.sp),
+              Icon(
+                Icons.front_hand,
+                color: Theme.of(context).primaryColor,
+                size: 16.sp,
+              ),
               SizedBox(width: 8.w),
               Text(
                 'PRAYER REQUESTS',
-                style: TextStyle(
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black45,
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.6),
                 ),
               ),
             ],
@@ -43,15 +49,14 @@ class PrayerSection extends StatelessWidget {
           SizedBox(height: 12.h),
           Text(
             '2 people asked for prayer',
-            style: TextStyle(
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontSize: 18.sp,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
             ),
           ),
           Text(
             'From within your church',
-            style: TextStyle(fontSize: 13.sp, color: Colors.black54),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           SizedBox(height: 20.h),
           _buildPrayerTile('Sarah M.', '12m ago'),
@@ -84,17 +89,23 @@ class PrayerSection extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 20.r,
-            backgroundColor: Colors.orange,
-          ),
+          CircleAvatar(radius: 20.r, backgroundColor: Colors.orange),
           SizedBox(width: 12.w),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600)),
-                Text(time, style: TextStyle(fontSize: 12.sp, color: Colors.black45)),
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Text(
+                  time,
+                  style: TextStyle(fontSize: 12.sp, color: Colors.black45),
+                ),
               ],
             ),
           ),
@@ -141,16 +152,22 @@ class PrayerSection extends StatelessWidget {
           SizedBox(height: 16.h),
           Row(
             children: [
-              CircleAvatar(
-                radius: 12.r,
-                backgroundColor: Colors.orange,
-              ),
+              CircleAvatar(radius: 12.r, backgroundColor: Colors.orange),
               SizedBox(width: 8.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Sarah M.', style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600)),
-                  Text('Prayed for 12 hours ago', style: TextStyle(fontSize: 10.sp, color: Colors.black45)),
+                  Text(
+                    'Sarah M.',
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    'Prayed for 12 hours ago',
+                    style: TextStyle(fontSize: 10.sp, color: Colors.black45),
+                  ),
                 ],
               ),
             ],

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foi/utils/assets/image_assets.dart';
 import 'package:foi/utils/assets/svg_assets.dart';
+import 'package:foi/widgets/ww_gradient_button.dart';
 import 'package:get/get.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -12,17 +13,15 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 250.h,
       padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top + 10.h,
-        left: 16.w,
-        right: 16.w,
-        bottom: 20.h,
+        top: MediaQuery.of(context).padding.top + 20.h,
+        left: 24.w,
+        right: 24.w,
       ),
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-            AssetsImage.bg_2,
-          ), // Using bg_1 for the soft sky look
+          image: AssetImage(AssetsImage.bg_2),
           fit: BoxFit.cover,
           alignment: Alignment.topCenter,
         ),
@@ -30,42 +29,29 @@ class HomeHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SvgPicture.asset(AssetsSvg.appIcon, width: 38.w),
+          SizedBox(height: 12.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.asset(AssetsSvg.appIcon, width: 38.w),
 
-              GestureDetector(
-                onTap: () => Get.toNamed('/bible-ai'),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 8.h,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF2B5AE1),
-                    borderRadius: BorderRadius.circular(20.r),
-                  ),
-                  child: Text(
-                    'Ask AI',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
+            children: [
+              Text(
+                'Good Morning, John',
+                style: Theme.of(
+                  context,
+                ).textTheme.displayMedium?.copyWith(
+                      fontSize: 24.sp,
+                      color: const Color(0xFF1E293B),
                     ),
-                  ),
-                ),
+              ),
+              WwGradientButton(
+                width: 90.w,
+                height: 38.h,
+                text: 'Ask AI',
+                fontSize: 14.sp,
+                onTap: () => Get.toNamed('/bible-ai'),
               ),
             ],
-          ),
-          SizedBox(height: 12.h),
-          Text(
-            'Good Morning, John',
-            style: TextStyle(
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w600,
-              color: const Color(0xFF3F2109),
-            ),
           ),
         ],
       ),
