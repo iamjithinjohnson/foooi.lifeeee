@@ -13,6 +13,8 @@ import 'package:foi/features/profile/binding/profile_binding.dart';
 import 'package:foi/features/settings/screen/settings_screen.dart';
 import 'package:foi/features/settings/binding/settings_binding.dart';
 import 'package:foi/features/grow/binding/grow_binding.dart';
+import 'package:foi/features/main/screen/main_screen.dart';
+import 'package:foi/features/main/binding/main_binding.dart';
 import 'package:get/get.dart';
 import '../../features/auth/login/binding/login_binding.dart';
 import '../../features/auth/login/screen/login_screen.dart';
@@ -32,6 +34,11 @@ import 'app_routes.dart';
 
 class Nav {
   static List<GetPage> routes = [
+    GetPage(
+      name: Routes.MAIN,
+      page: () => const MainScreen(),
+      binding: MainBinding(),
+    ),
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginScreen(),

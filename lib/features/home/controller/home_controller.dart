@@ -2,26 +2,10 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   var selectedMoodIndex = (-1).obs;
-  var bottomNavIndex = 0.obs;
 
   final List<String> moods = ['Happy', 'Sad', 'Anxious', 'Tired', 'Angry'];
   
   void selectMood(int index) {
     selectedMoodIndex.value = index;
-  }
-
-  void changeTab(int index) {
-    bottomNavIndex.value = index;
-    if (index == 0) {
-      Get.offAllNamed('/home');
-    } else if (index == 1) {
-      Get.toNamed('/prayer');
-    } else if (index == 2) {
-      Get.toNamed('/grow');
-    } else if (index == 3) {
-      Get.toNamed('/library');
-    } else if (index == 4) {
-      Get.toNamed('/profile');
-    }
   }
 }

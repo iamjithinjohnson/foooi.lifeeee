@@ -24,7 +24,7 @@ class GrowScreen extends GetView<GrowController> {
             _buildSectionHeader(
               context,
               'Bible Reading Plans',
-              'You\'re allowed to take this slow',
+              "You're allowed to take this slow",
             ),
             _buildReadingPlans(context),
             SizedBox(height: 32.h),
@@ -37,59 +37,6 @@ class GrowScreen extends GetView<GrowController> {
             SizedBox(height: 32.h),
             _buildWeeklyReflection(context),
             SizedBox(height: 100.h),
-          ],
-        ),
-      ),
-      bottomNavigationBar: _buildBottomNav(context),
-    );
-  }
-
-  Widget _buildBottomNav(BuildContext context) {
-    return Obx(
-      () => Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.2))),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: controller.bottomNavIndex.value,
-          onTap: controller.changeTab,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Theme.of(context).primaryColor,
-          unselectedItemColor: Colors.grey,
-          selectedLabelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-            fontWeight: FontWeight.w600,
-            color: Theme.of(context).primaryColor,
-          ),
-          unselectedLabelStyle: Theme.of(
-            context,
-          ).textTheme.bodySmall?.copyWith(color: Colors.grey),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.self_improvement_outlined),
-              activeIcon: Icon(Icons.self_improvement),
-              label: 'Pray',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.groups_outlined),
-              activeIcon: Icon(Icons.groups),
-              label: 'Grow',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book_outlined),
-              activeIcon: Icon(Icons.menu_book),
-              label: 'Library',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              activeIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
           ],
         ),
       ),
@@ -260,23 +207,31 @@ class GrowScreen extends GetView<GrowController> {
       child: Column(
         children: [
           GestureDetector(
-            onTap: () => Get.toNamed('/plan-detail', arguments: {
-              'title': '7-Day Peace Plan',
-              'subtitle': 'Find inner peace through daily scripture on God\'s calming presence.'
-            }),
+            onTap: () => Get.toNamed(
+              '/plan-detail',
+              arguments: {
+                'title': '7-Day Peace Plan',
+                'subtitle':
+                    "Find inner peace through daily scripture on God's calming presence.",
+              },
+            ),
             child: _buildPlanItem(
               context,
               '7-Day Peace Plan',
-              'Find inner peace through daily scripture on God\'s calming presence.',
+              "Find inner peace through daily scripture on God's calming presence.",
               '3 days left • Gentle • +5XP',
               true,
             ),
           ),
           GestureDetector(
-            onTap: () => Get.toNamed('/plan-detail', arguments: {
-              'title': '21-Day Discipline Plan',
-              'subtitle': 'Build spiritual discipline with daily devotions and reflection.'
-            }),
+            onTap: () => Get.toNamed(
+              '/plan-detail',
+              arguments: {
+                'title': '21-Day Discipline Plan',
+                'subtitle':
+                    'Build spiritual discipline with daily devotions and reflection.',
+              },
+            ),
             child: _buildPlanItem(
               context,
               '21-Day Discipline Plan',
@@ -286,10 +241,13 @@ class GrowScreen extends GetView<GrowController> {
             ),
           ),
           GestureDetector(
-            onTap: () => Get.toNamed('/plan-detail', arguments: {
-              'title': '30 Days of Psalms',
-              'subtitle': 'Journey through the Psalms — one chapter per day.'
-            }),
+            onTap: () => Get.toNamed(
+              '/plan-detail',
+              arguments: {
+                'title': '30 Days of Psalms',
+                'subtitle': 'Journey through the Psalms — one chapter per day.',
+              },
+            ),
             child: _buildPlanItem(
               context,
               '30 Days of Psalms',
@@ -389,9 +347,9 @@ class GrowScreen extends GetView<GrowController> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.arrow_circle_right_rounded,
-                      color: const Color(0xFFFF4D00),
+                      color: Color(0xFFFF4D00),
                     ),
                   ],
                 ),
@@ -427,7 +385,7 @@ class GrowScreen extends GetView<GrowController> {
       decoration: BoxDecoration(
         border: isLast
             ? null
-            : Border(bottom: BorderSide(color: const Color(0xFFF1F5F9))),
+            : const Border(bottom: BorderSide(color: Color(0xFFF1F5F9))),
       ),
       child: Row(
         children: [

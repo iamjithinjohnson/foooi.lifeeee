@@ -25,7 +25,6 @@ class PrayerScreen extends GetView<PrayerController> {
           children: [const PrayerHeader(), Obx(() => _buildContent(context))],
         ),
       ),
-      bottomNavigationBar: _buildBottomNav(context),
     );
   }
 
@@ -114,50 +113,5 @@ class PrayerScreen extends GetView<PrayerController> {
     } else {
       return const YourJourneyView();
     }
-  }
-
-  Widget _buildBottomNav(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: 1, // Prayer tab
-      onTap: controller.changeBottomTab,
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      selectedItemColor: Theme.of(context).primaryColor,
-      unselectedItemColor: Colors.grey,
-      selectedLabelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-        fontWeight: FontWeight.w600,
-        color: Theme.of(context).primaryColor,
-      ),
-      unselectedLabelStyle: Theme.of(
-        context,
-      ).textTheme.bodySmall?.copyWith(color: Colors.grey),
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          activeIcon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.self_improvement_outlined),
-          activeIcon: Icon(Icons.self_improvement),
-          label: 'Pray',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.groups_outlined),
-          activeIcon: Icon(Icons.groups),
-          label: 'Grow',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.book_outlined),
-          activeIcon: Icon(Icons.book),
-          label: 'Library',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline),
-          activeIcon: Icon(Icons.person),
-          label: 'Profile',
-        ),
-      ],
-    );
   }
 }

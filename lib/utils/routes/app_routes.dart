@@ -1,4 +1,5 @@
 class Routes {
+  static const MAIN = '/main';
   static const LOGIN = '/login';
   static const PHONE = '/phone';
   static const OTP = '/otp';

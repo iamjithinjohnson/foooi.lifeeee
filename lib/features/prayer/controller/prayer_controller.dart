@@ -51,18 +51,4 @@ class PrayerController extends GetxController {
   void changeTab(int index) {
     selectedTab.value = index;
   }
-
-  void changeBottomTab(int index) {
-    if (index == 0) {
-      Get.offAllNamed('/home');
-    } else if (index == 1) {
-      // Already here
-    } else if (index == 2) {
-      Get.toNamed('/grow');
-    } else if (index == 3) {
-      Get.toNamed('/library');
-    } else if (index == 4) {
-      Get.toNamed('/profile');
-    }
-  }
 }
