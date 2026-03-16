@@ -16,4 +16,5 @@ class Routes {
   static const String PLAN_DETAIL = '/plan-detail';
   static const String LIBRARY = '/library';
   static const String PROFILE = '/profile';
+  static const String SETTINGS = '/settings';
 }

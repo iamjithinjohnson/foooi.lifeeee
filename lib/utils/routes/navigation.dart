@@ -10,6 +10,8 @@ import 'package:foi/features/library/screen/library_screen.dart';
 import 'package:foi/features/library/binding/library_binding.dart';
 import 'package:foi/features/profile/screen/profile_screen.dart';
 import 'package:foi/features/profile/binding/profile_binding.dart';
+import 'package:foi/features/settings/screen/settings_screen.dart';
+import 'package:foi/features/settings/binding/settings_binding.dart';
 import 'package:foi/features/grow/binding/grow_binding.dart';
 import 'package:get/get.dart';
 import '../../features/auth/login/binding/login_binding.dart';
@@ -107,6 +109,11 @@ class Nav {
       name: Routes.PROFILE,
       page: () => const ProfileScreen(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.SETTINGS,
+      page: () => const SettingsScreen(),
+      binding: SettingsBinding(),
     ),
   ];
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:foi/utils/assets/image_assets.dart';
 import '../controller/profile_controller.dart';
@@ -73,7 +74,9 @@ class ProfileScreen extends GetView<ProfileController> {
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.white, width: 4.w),
                     image: const DecorationImage(
-                      image: AssetImage(AssetsImage.bg_2), // Using bg2 as placeholder for user photo
+                      image: AssetImage(
+                        AssetsImage.bg_2,
+                      ), // Using bg2 as placeholder for user photo
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -86,7 +89,11 @@ class ProfileScreen extends GetView<ProfileController> {
               children: [
                 Text(
                   'Sebastian Stan',
-                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold, color: const Color(0xFF0F172A)),
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF0F172A),
+                  ),
                 ),
                 SizedBox(width: 8.w),
                 Icon(Icons.stars, color: Colors.blue, size: 20.w),
@@ -116,11 +123,17 @@ class ProfileScreen extends GetView<ProfileController> {
         style: OutlinedButton.styleFrom(
           side: const BorderSide(color: Color(0xFF1E293B)),
           minimumSize: Size(160.w, 44.h),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.r),
+          ),
         ),
         child: Text(
           'View or Edit Profile',
-          style: TextStyle(color: const Color(0xFF1E293B), fontWeight: FontWeight.w600, fontSize: 14.sp),
+          style: TextStyle(
+            color: const Color(0xFF1E293B),
+            fontWeight: FontWeight.w600,
+            fontSize: 14.sp,
+          ),
         ),
       ),
     );
@@ -150,9 +163,17 @@ class ProfileScreen extends GetView<ProfileController> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16.r),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4))],
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
-          child: Center(child: Text(icon, style: const TextStyle(fontSize: 32))),
+          child: Center(
+            child: Text(icon, style: const TextStyle(fontSize: 32)),
+          ),
         ),
         SizedBox(height: 8.h),
         SizedBox(
@@ -160,7 +181,11 @@ class ProfileScreen extends GetView<ProfileController> {
           child: Text(
             label,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 11.sp, color: const Color(0xFF1E293B), fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 11.sp,
+              color: const Color(0xFF1E293B),
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],
@@ -187,7 +212,10 @@ class ProfileScreen extends GetView<ProfileController> {
               bottom: 0,
               top: 0,
               child: ClipRRect(
-                borderRadius: BorderRadius.only(topRight: Radius.circular(16.r), bottomRight: Radius.circular(16.r)),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(16.r),
+                  bottomRight: Radius.circular(16.r),
+                ),
                 child: Image.asset(AssetsImage.proUser, fit: BoxFit.fitHeight),
               ),
             ),
@@ -201,7 +229,12 @@ class ProfileScreen extends GetView<ProfileController> {
                     width: 180.w,
                     child: Text(
                       'Become a Pro user to unlock some amazing features →',
-                      style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold, height: 1.2),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        height: 1.2,
+                      ),
                     ),
                   ),
                 ],
@@ -237,9 +270,19 @@ class ProfileScreen extends GetView<ProfileController> {
             ),
             child: Column(
               children: [
-                _buildSwitchItem('Business Listing', 'Show in Business Network', controller.businessListing, controller.toggleBusinessListing),
+                _buildSwitchItem(
+                  'Business Listing',
+                  'Show in Business Network',
+                  controller.businessListing,
+                  controller.toggleBusinessListing,
+                ),
                 const Divider(height: 1, color: Color(0xFFF1F5F9)),
-                _buildSwitchItem('Matrimony Profile', 'Visible to CITO members', controller.matrimonyProfile, controller.toggleMatrimonyProfile),
+                _buildSwitchItem(
+                  'Matrimony Profile',
+                  'Visible to CITO members',
+                  controller.matrimonyProfile,
+                  controller.toggleMatrimonyProfile,
+                ),
               ],
             ),
           ),
@@ -254,13 +297,21 @@ class ProfileScreen extends GetView<ProfileController> {
               children: [
                 _buildMenuItem(Icons.bookmark_border, 'Saved Items'),
                 const Divider(height: 1, color: Color(0xFFF1F5F9)),
-                _buildMenuItem(Icons.settings_outlined, 'Settings'),
+                _buildMenuItem(
+                  Icons.settings_outlined,
+                  'Settings',
+                  onTap: () => Get.toNamed(Routes.SETTINGS),
+                ),
                 const Divider(height: 1, color: Color(0xFFF1F5F9)),
                 _buildMenuItem(Icons.headset_mic_outlined, 'Support'),
                 const Divider(height: 1, color: Color(0xFFF1F5F9)),
                 _buildMenuItem(Icons.info_outline, 'About Us'),
                 const Divider(height: 1, color: Color(0xFFF1F5F9)),
-                _buildMenuItem(Icons.logout, 'Logout', color: const Color(0xFFEF4444)),
+                _buildMenuItem(
+                  Icons.logout,
+                  'Logout',
+                  color: const Color(0xFFEF4444),
+                ),
               ],
             ),
           ),
@@ -269,7 +320,12 @@ class ProfileScreen extends GetView<ProfileController> {
     );
   }
 
-  Widget _buildSwitchItem(String title, String subtitle, RxBool value, Function(bool) onChanged) {
+  Widget _buildSwitchItem(
+    String title,
+    String subtitle,
+    RxBool value,
+    Function(bool) onChanged,
+  ) {
     return Padding(
       padding: EdgeInsets.all(16.w),
       child: Row(
@@ -278,20 +334,44 @@ class ProfileScreen extends GetView<ProfileController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: const Color(0xFF1E293B))),
-                Text(subtitle, style: TextStyle(fontSize: 12.sp, color: const Color(0xFF94A3B8))),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF1E293B),
+                  ),
+                ),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    color: const Color(0xFF94A3B8),
+                  ),
+                ),
               ],
             ),
           ),
-          Obx(() => CupertinoSwitch(value: value.value, activeColor: Colors.orange, onChanged: onChanged)),
+          Obx(
+            () => CupertinoSwitch(
+              value: value.value,
+              activeColor: Colors.orange,
+              onChanged: onChanged,
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String title, {Color? color}) {
+  Widget _buildMenuItem(
+    IconData icon,
+    String title, {
+    Color? color,
+    VoidCallback? onTap,
+  }) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: Row(
@@ -300,10 +380,19 @@ class ProfileScreen extends GetView<ProfileController> {
             SizedBox(width: 16.w),
             Text(
               title,
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: color ?? const Color(0xFF1E293B)),
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: color ?? const Color(0xFF1E293B),
+              ),
             ),
             const Spacer(),
-            if (color == null) Icon(Icons.chevron_right, color: const Color(0xFF94A3B8), size: 20.w),
+            if (color == null)
+              Icon(
+                Icons.chevron_right,
+                color: const Color(0xFF94A3B8),
+                size: 20.w,
+              ),
           ],
         ),
       ),
@@ -327,13 +416,35 @@ class ProfileScreen extends GetView<ProfileController> {
             fontWeight: FontWeight.w600,
             color: Theme.of(context).primaryColor,
           ),
-          unselectedLabelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+          unselectedLabelStyle: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: Colors.grey),
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home_outlined), activeIcon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.self_improvement_outlined), activeIcon: Icon(Icons.self_improvement), label: 'Pray'),
-            BottomNavigationBarItem(icon: Icon(Icons.groups_outlined), activeIcon: Icon(Icons.groups), label: 'Grow'),
-            BottomNavigationBarItem(icon: Icon(Icons.menu_book_outlined), activeIcon: Icon(Icons.menu_book), label: 'Library'),
-            BottomNavigationBarItem(icon: Icon(Icons.person_outline), activeIcon: Icon(Icons.person), label: 'Profile'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.self_improvement_outlined),
+              activeIcon: Icon(Icons.self_improvement),
+              label: 'Pray',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.groups_outlined),
+              activeIcon: Icon(Icons.groups),
+              label: 'Grow',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book_outlined),
+              activeIcon: Icon(Icons.menu_book),
+              label: 'Library',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              activeIcon: Icon(Icons.person),
+              label: 'Profile',
+            ),
           ],
         ),
       ),
