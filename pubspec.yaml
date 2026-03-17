@@ -93,7 +93,7 @@ dependencies:
   # --- Multimedia (Audio/Video/Photo) ---
   image_picker: ^1.2.1                     # Pick images from gallery or camera
   # video_player: ^2.9.5                     # Play video files
-  # just_audio: ^0.10.5                      # High-quality audio playback
+  just_audio: ^0.10.5                      # High-quality audio playback
 
 
   # --- App Lifecycle & Notifications ---

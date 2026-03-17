@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:foi/utils/assets/image_assets.dart';
+import '../controller/audio_player_controller.dart';
 
-class AudioPlayerScreen extends StatelessWidget {
+class AudioPlayerScreen extends GetView<AudioPlayerController> {
   const AudioPlayerScreen({super.key});
 
   @override
@@ -64,7 +65,7 @@ class AudioPlayerScreen extends StatelessWidget {
                 ),
                 const Spacer(flex: 1),
                 Text(
-                  'Wisdom',
+                  'STRENGTH',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: const Color(0xFF64748B),
                         letterSpacing: 1.5,
@@ -75,7 +76,7 @@ class AudioPlayerScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40.w),
                   child: Text(
-                    'Imperfections and Lord of Light',
+                    'Psalm 46:1',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.displayMedium?.copyWith(
                           fontSize: 32.sp,
@@ -83,32 +84,57 @@ class AudioPlayerScreen extends StatelessWidget {
                         ),
                   ),
                 ),
+                SizedBox(height: 12.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  child: Text(
+                    '"God is our refuge and strength, a very present help in trouble."',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: const Color(0xFF1E293B),
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
                 const Spacer(flex: 2),
-                Text(
-                  '3:40s',
+                Obx(() => Text(
+                  controller.formatDuration(controller.position.value),
                   style: TextStyle(
                     fontSize: 64.sp,
                     color: const Color(0xFFFF6B00),
                     fontFamily: 'Inter',
                   ),
-                ),
+                )),
                 const Spacer(flex: 3),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(Icons.replay_10, color: const Color(0xFFFF6B00), size: 40.w),
-                      Container(
-                        width: 100.w,
-                        height: 100.w,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xFFFF4D00),
-                        ),
-                        child: Icon(Icons.play_arrow, color: Colors.white, size: 50.w),
+                      IconButton(
+                        onPressed: () => controller.seekBackward(),
+                        icon: Icon(Icons.replay_10, color: const Color(0xFFFF6B00), size: 40.w),
                       ),
-                      Icon(Icons.forward_10, color: const Color(0xFFFF6B00), size: 40.w),
+                      GestureDetector(
+                        onTap: () => controller.togglePlayPause(),
+                        child: Obx(() => Container(
+                          width: 100.w,
+                          height: 100.w,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFFFF4D00),
+                          ),
+                          child: Icon(
+                            controller.isPlaying.value ? Icons.pause : Icons.play_arrow,
+                            color: Colors.white,
+                            size: 50.w,
+                          ),
+                        )),
+                      ),
+                      IconButton(
+                        onPressed: () => controller.seekForward(),
+                        icon: Icon(Icons.forward_10, color: const Color(0xFFFF6B00), size: 40.w),
+                      ),
                     ],
                   ),
                 ),
@@ -126,18 +152,29 @@ class AudioPlayerScreen extends StatelessWidget {
                           inactiveTrackColor: const Color(0xFFF1F5F9),
                           thumbColor: const Color(0xFFFF4D00),
                         ),
-                        child: Slider(
-                          value: 0.1,
-                          onChanged: (v) {},
-                        ),
+                        child: Obx(() => Slider(
+                          value: controller.duration.value.inMilliseconds > 0 
+                              ? controller.position.value.inMilliseconds / controller.duration.value.inMilliseconds 
+                              : 0.0,
+                          onChanged: (v) {
+                            final newMs = v * controller.duration.value.inMilliseconds;
+                            controller.seek(Duration(milliseconds: newMs.toInt()));
+                          },
+                        )),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('0:10', style: Theme.of(context).textTheme.bodySmall),
-                            Text('3:40', style: Theme.of(context).textTheme.bodySmall),
+                            Obx(() => Text(
+                              controller.formatDuration(controller.position.value),
+                              style: Theme.of(context).textTheme.bodySmall,
+                            )),
+                            Obx(() => Text(
+                              controller.formatDuration(controller.duration.value),
+                              style: Theme.of(context).textTheme.bodySmall,
+                            )),
                           ],
                         ),
                       ),
@@ -147,10 +184,10 @@ class AudioPlayerScreen extends StatelessWidget {
                 SizedBox(height: 40.h),
                 TextButton.icon(
                   onPressed: () {},
-                  icon: Icon(Icons.article_outlined, color: const Color(0xFF1E293B)),
-                  label: Text(
+                  icon: const Icon(Icons.article_outlined, color: Color(0xFF1E293B)),
+                  label: const Text(
                     'Transcript',
-                    style: TextStyle(color: const Color(0xFF1E293B), fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Color(0xFF1E293B), fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(height: 40.h),
