@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class JobsScreen extends StatelessWidget {
@@ -24,12 +25,7 @@ class JobsScreen extends StatelessWidget {
           children: [
             Text(
               'CITO Jobs',
-              style: TextStyle(
-                fontSize: 32.sp,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'PP Cirka', // From AppTheme
-                color: const Color(0xFF0F172A),
-              ),
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             SizedBox(height: 24.h),
             _buildSearchBar(),
@@ -49,6 +45,12 @@ class JobsScreen extends StatelessWidget {
             SizedBox(height: 40.h),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Get.toNamed(Routes.JOB_CREATE),
+        backgroundColor: const Color(0xFFFF5C00),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

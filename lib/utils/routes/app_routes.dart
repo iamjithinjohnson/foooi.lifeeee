@@ -7,6 +7,7 @@ class Routes {
   static const HOME = '/home';
   static const BIBLE_AI = '/bible-ai';
   static const PRAYER = '/prayer';
+  static const String PRAYER_REQUEST = '/prayer-request';
   static const JOURNEY_DETAIL = '/journey-detail';
   static const MUSIC_LIST = '/music-list';
   static const AUDIO_PLAYER = '/audio-player';
@@ -19,5 +20,8 @@ class Routes {
   static const String PROFILE = '/profile';
   static const String SETTINGS = '/settings';
   static const String JOBS = '/jobs';
+  static const String JOB_CREATE = '/job-create';
   static const String MATRIMONY = '/matrimony';
+  static const String MATRIMONY_CREATE = '/matrimony-create';
+  static const String MY_CHURCH = '/my-church';
 }

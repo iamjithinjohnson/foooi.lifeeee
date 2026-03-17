@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foi/utils/assets/svg_assets.dart';
+import 'package:foi/utils/routes/app_routes.dart';
+import 'package:get/get.dart';
 
 class QuickActions extends StatelessWidget {
   const QuickActions({super.key});
@@ -31,6 +33,7 @@ class QuickActions extends StatelessWidget {
               context,
               'Prayer Request',
               AssetsSvg.prayerRequest,
+              onTap: () => Get.toNamed(Routes.PRAYER_REQUEST),
             ),
           ],
         ),
@@ -38,11 +41,18 @@ class QuickActions extends StatelessWidget {
     );
   }
 
-  Widget _buildActionItem(BuildContext context, String title, String svgAsset) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        SvgPicture.asset(svgAsset),
+  Widget _buildActionItem(
+    BuildContext context,
+    String title,
+    String svgAsset, {
+    VoidCallback? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SvgPicture.asset(svgAsset),
         SizedBox(height: 12.h),
         SizedBox(
           width: 80.w,
@@ -55,7 +65,8 @@ class QuickActions extends StatelessWidget {
             ),
           ),
         ),
-      ],
+        ],
+      ),
     );
   }
 }

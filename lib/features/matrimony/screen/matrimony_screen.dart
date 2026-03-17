@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import 'package:foi/utils/routes/app_routes.dart';
+
 class MatrimonyScreen extends StatelessWidget {
   const MatrimonyScreen({super.key});
 
@@ -25,12 +27,7 @@ class MatrimonyScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Text(
                 'CITO Matrimony',
-                style: TextStyle(
-                  fontSize: 32.sp,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'PP Cirka',
-                  color: const Color(0xFF0F172A),
-                ),
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
             SizedBox(height: 24.h),
@@ -40,6 +37,12 @@ class MatrimonyScreen extends StatelessWidget {
             SizedBox(height: 40.h),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Get.toNamed(Routes.MATRIMONY_CREATE),
+        backgroundColor: const Color(0xFFFF5C00),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
@@ -61,7 +64,11 @@ class MatrimonyScreen extends StatelessWidget {
               color: Colors.white.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12.r),
             ),
-            child: Icon(Icons.verified_user_outlined, color: Colors.white, size: 24.w),
+            child: Icon(
+              Icons.verified_user_outlined,
+              color: Colors.white,
+              size: 24.w,
+            ),
           ),
           SizedBox(width: 16.w),
           Expanded(
@@ -96,21 +103,43 @@ class MatrimonyScreen extends StatelessWidget {
   Widget _buildProfileList() {
     return Column(
       children: [
-         _buildProfileItem('John M.', 'Grace Community Church', 'Houston, TX', '28 Yrs', 'Software Engineer'),
-         _buildProfileItem('Sarah M.', 'Grace Community Church', 'Houston, TX', '28 Yrs', 'Software Engineer'),
-         _buildProfileItem('Sarah M.', 'Grace Community Church', 'Houston, TX', '28 Yrs', 'Software Engineer'),
+        _buildProfileItem(
+          'John M.',
+          'Grace Community Church',
+          'Houston, TX',
+          '28 Yrs',
+          'Software Engineer',
+        ),
+        _buildProfileItem(
+          'Sarah M.',
+          'Grace Community Church',
+          'Houston, TX',
+          '28 Yrs',
+          'Software Engineer',
+        ),
+        _buildProfileItem(
+          'Sarah M.',
+          'Grace Community Church',
+          'Houston, TX',
+          '28 Yrs',
+          'Software Engineer',
+        ),
       ],
     );
   }
 
-  Widget _buildProfileItem(String name, String church, String location, String age, String occupation) {
+  Widget _buildProfileItem(
+    String name,
+    String church,
+    String location,
+    String age,
+    String occupation,
+  ) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
       padding: EdgeInsets.only(bottom: 24.h),
       decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Color(0xFFF1F5F9)),
-        ),
+        border: Border(bottom: BorderSide(color: Color(0xFFF1F5F9))),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,7 +186,11 @@ class MatrimonyScreen extends StatelessWidget {
                   color: Color(0xFFFF5C00),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 16.w),
+                child: Icon(
+                  Icons.arrow_forward_rounded,
+                  color: Colors.white,
+                  size: 16.w,
+                ),
               ),
             ],
           ),

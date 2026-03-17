@@ -144,12 +144,12 @@ class ProfileScreen extends GetView<ProfileController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildQuickActionItem('My Church', '🙏'),
           _buildQuickActionItem(
-            'CITO Community',
-            '🤝',
-            onTap: () {},
+            'My Church',
+            '🙏',
+            onTap: () => Get.toNamed(Routes.MY_CHURCH),
           ),
+          _buildQuickActionItem('CITO Community', '🤝', onTap: () {}),
           _buildQuickActionItem(
             'Jobs',
             '💼',
@@ -165,7 +165,11 @@ class ProfileScreen extends GetView<ProfileController> {
     );
   }
 
-  Widget _buildQuickActionItem(String label, String icon, {VoidCallback? onTap}) {
+  Widget _buildQuickActionItem(
+    String label,
+    String icon, {
+    VoidCallback? onTap,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -209,53 +213,10 @@ class ProfileScreen extends GetView<ProfileController> {
   Widget _buildProBanner() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Container(
+      child: SizedBox(
         height: 100.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.r),
-          gradient: const LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [Color(0xFFFF5C00), Color(0xFFFF9F69)],
-          ),
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-              right: 0,
-              bottom: 0,
-              top: 0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(16.r),
-                  bottomRight: Radius.circular(16.r),
-                ),
-                child: Image.asset(AssetsImage.proUser, fit: BoxFit.fitHeight),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 180.w,
-                    child: Text(
-                      'Become a Pro user to unlock some amazing features →',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        height: 1.2,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+        width: double.infinity,
+        child: Image.asset(AssetsImage.proUser),
       ),
     );
   }

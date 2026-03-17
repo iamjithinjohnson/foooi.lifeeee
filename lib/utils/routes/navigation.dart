@@ -32,7 +32,14 @@ import '../../features/bible_ai/screen/bible_ai_screen.dart';
 import '../../features/prayer/binding/prayer_binding.dart';
 import '../../features/prayer/screen/prayer_screen.dart';
 import '../../features/jobs/screen/jobs_screen.dart';
+import '../../features/jobs/screen/job_create_screen.dart';
+import '../../features/prayer/binding/prayer_request_binding.dart';
+import '../../features/prayer/screen/prayer_request_screen.dart';
 import '../../features/matrimony/screen/matrimony_screen.dart';
+import '../../features/matrimony/screen/matrimony_create_screen.dart';
+import '../../features/matrimony/binding/matrimony_binding.dart';
+import '../../features/church/binding/my_church_binding.dart';
+import '../../features/church/screen/my_church_screen.dart';
 import 'app_routes.dart';
 
 class Nav {
@@ -76,6 +83,11 @@ class Nav {
       name: Routes.PRAYER,
       page: () => const PrayerScreen(),
       binding: PrayerBinding(),
+    ),
+    GetPage(
+      name: Routes.PRAYER_REQUEST,
+      page: () => const PrayerRequestScreen(),
+      binding: PrayerRequestBinding(),
     ),
     GetPage(
       name: Routes.JOURNEY_DETAIL,
@@ -131,8 +143,23 @@ class Nav {
       page: () => const JobsScreen(),
     ),
     GetPage(
+      name: Routes.JOB_CREATE,
+      page: () => const JobCreateScreen(),
+    ),
+    GetPage(
       name: Routes.MATRIMONY,
       page: () => const MatrimonyScreen(),
+      binding: MatrimonyBinding(),
+    ),
+    GetPage(
+      name: Routes.MATRIMONY_CREATE,
+      page: () => const MatrimonyCreateScreen(),
+      binding: MatrimonyBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_CHURCH,
+      page: () => const MyChurchScreen(),
+      binding: MyChurchBinding(),
     ),
   ];
 }
