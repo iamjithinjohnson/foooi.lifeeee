@@ -30,6 +30,8 @@ import '../../features/bible_ai/binding/bible_ai_binding.dart';
 import '../../features/bible_ai/screen/bible_ai_screen.dart';
 import '../../features/prayer/binding/prayer_binding.dart';
 import '../../features/prayer/screen/prayer_screen.dart';
+import '../../features/jobs/screen/jobs_screen.dart';
+import '../../features/matrimony/screen/matrimony_screen.dart';
 import 'app_routes.dart';
 
 class Nav {
@@ -121,6 +123,14 @@ class Nav {
       name: Routes.SETTINGS,
       page: () => const SettingsScreen(),
       binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.JOBS,
+      page: () => const JobsScreen(),
+    ),
+    GetPage(
+      name: Routes.MATRIMONY,
+      page: () => const MatrimonyScreen(),
     ),
   ];
 }

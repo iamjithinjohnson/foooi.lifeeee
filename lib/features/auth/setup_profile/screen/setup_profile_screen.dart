@@ -109,10 +109,7 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
           Expanded(child: content),
           // const Spacer(flex: 3),
           if (showButton)
-            WwGradientButton(
-              onTap: onButtonPressed,
-              text: buttonText,
-            ),
+            WwGradientButton(onTap: onButtonPressed, text: buttonText),
           SizedBox(height: 40.h),
         ],
       ),
@@ -621,7 +618,7 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
         ),
         SizedBox(height: 40.h),
         GestureDetector(
-          onTap: () => Get.offAllNamed(Routes.HOME),
+          onTap: () => Get.offAllNamed(Routes.MAIN),
           child: Container(
             width: 200.w,
             padding: EdgeInsets.symmetric(vertical: 12.h),

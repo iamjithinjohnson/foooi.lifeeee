@@ -18,4 +18,6 @@ class Routes {
   static const String LIBRARY = '/library';
   static const String PROFILE = '/profile';
   static const String SETTINGS = '/settings';
+  static const String JOBS = '/jobs';
+  static const String MATRIMONY = '/matrimony';
 }

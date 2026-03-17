@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foi/utils/assets/image_assets.dart';
 import 'package:foi/utils/assets/svg_assets.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:foi/widgets/ww_gradient_button.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 250.h,
+      height: 190.h,
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top + 20.h,
         left: 24.w,
@@ -37,19 +38,17 @@ class HomeHeader extends StatelessWidget {
             children: [
               Text(
                 'Good Morning, John',
-                style: Theme.of(
-                  context,
-                ).textTheme.displayMedium?.copyWith(
-                      fontSize: 24.sp,
-                      color: const Color(0xFF1E293B),
-                    ),
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  fontSize: 24.sp,
+                  color: const Color(0xFF1E293B),
+                ),
               ),
               WwGradientButton(
                 width: 90.w,
                 height: 38.h,
                 text: 'Ask AI',
                 fontSize: 14.sp,
-                onTap: () => Get.toNamed('/bible-ai'),
+                onTap: () => Get.toNamed(Routes.BIBLE_AI),
               ),
             ],
           ),

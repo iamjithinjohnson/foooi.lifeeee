@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:foi/utils/assets/image_assets.dart';
 
@@ -22,19 +23,19 @@ class JourneyDetailScreen extends StatelessWidget {
                   Text(
                     'Lorem ipsum dolor sit amet consectetur. Bibendum ultricies semper mus hendrerit nec mus elit consectetur interdum. Nec amet varius erat feugiat vulputate sit feugiat volutpat. Arcu venenatis tristique at aliquet lectus pellentesque aliquet quam tellus. Non hendrerit pellentesque enim pretium augue viverra ullamcorper eu. Id aliquam eu neque lobortis est egestas massa morbi. Ipsum amet ullamcorper facilisi eu arcu et in lectus gravida. Quisque hendrerit enim pellentesque euismod aliquet enim volutpat. Ornare sit feugiat urna dignissim id consequat nulla ultricies. Maecenas sed a quam etiam venenatis.',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontSize: 16.sp,
-                          height: 1.6,
-                          color: const Color(0xFF1E293B),
-                        ),
+                      fontSize: 16.sp,
+                      height: 1.6,
+                      color: const Color(0xFF1E293B),
+                    ),
                   ),
                   SizedBox(height: 24.h),
                   Text(
                     'Lorem ipsum dolor sit amet consectetur. Bibendum ultricies semper mus hendrerit nec mus elit consectetur interdum. Nec amet varius erat feugiat vulputate sit feugiat volutpat. Arcu venenatis tristique at aliquet lectus pellentesque aliquet quam tellus. Non hendrerit pellentesque enim pretium augue viverra ullamcorper eu. Id aliquam eu neque lobortis est egestas massa morbi. Ipsum amet ullamcorper facilisi eu arcu et in lectus gravida. Quisque hendrerit enim pellentesque euismod aliquet enim volutpat.',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontSize: 16.sp,
-                          height: 1.6,
-                          color: const Color(0xFF1E293B),
-                        ),
+                      fontSize: 16.sp,
+                      height: 1.6,
+                      color: const Color(0xFF1E293B),
+                    ),
                   ),
                 ],
               ),
@@ -95,9 +96,9 @@ class JourneyDetailScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Genesis 1:1',
-                      style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                            fontSize: 36.sp,
-                          ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.displayMedium?.copyWith(fontSize: 36.sp),
                     ),
                     SizedBox(height: 8.h),
                     Text(
@@ -119,7 +120,12 @@ class JourneyDetailScreen extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: Color(0xFFFF4D00),
                 ),
-                child: Icon(Icons.play_arrow, color: Colors.white, size: 36.w),
+                child: IconButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.AUDIO_PLAYER);
+                  },
+                  icon: Icon(Icons.play_arrow, color: Colors.white, size: 36.w),
+                ),
               ),
             ],
           ),

@@ -145,49 +145,64 @@ class ProfileScreen extends GetView<ProfileController> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _buildQuickActionItem('My Church', '🙏'),
-          _buildQuickActionItem('CITO Community', '🤝'),
-          _buildQuickActionItem('Jobs', '💼'),
-          _buildQuickActionItem('Matrimony', '❤️'),
+          _buildQuickActionItem(
+            'CITO Community',
+            '🤝',
+            onTap: () {},
+          ),
+          _buildQuickActionItem(
+            'Jobs',
+            '💼',
+            onTap: () => Get.toNamed(Routes.JOBS),
+          ),
+          _buildQuickActionItem(
+            'Matrimony',
+            '❤️',
+            onTap: () => Get.toNamed(Routes.MATRIMONY),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildQuickActionItem(String label, String icon) {
-    return Column(
-      children: [
-        Container(
-          width: 75.w,
-          height: 75.w,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16.r),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Center(
-            child: Text(icon, style: const TextStyle(fontSize: 32)),
-          ),
-        ),
-        SizedBox(height: 8.h),
-        SizedBox(
-          width: 80.w,
-          child: Text(
-            label,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 11.sp,
-              color: const Color(0xFF1E293B),
-              fontWeight: FontWeight.bold,
+  Widget _buildQuickActionItem(String label, String icon, {VoidCallback? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 75.w,
+            height: 75.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Text(icon, style: const TextStyle(fontSize: 32)),
             ),
           ),
-        ),
-      ],
+          SizedBox(height: 8.h),
+          SizedBox(
+            width: 80.w,
+            child: Text(
+              label,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 11.sp,
+                color: const Color(0xFF1E293B),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
