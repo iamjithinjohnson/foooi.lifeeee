@@ -257,6 +257,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  convex_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: convex_bottom_bar
+      sha256: ebf0f3deb1e8e99374d844fee7485d2980ec502dedfaad395c12118477933aef
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
   country_code_picker:
     dependency: "direct main"
     description:
@@ -446,6 +454,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
+  flutter_dotenv:
+    dependency: "direct main"
+    description:
+      name: flutter_dotenv
+      sha256: b7c7be5cd9f6ef7a78429cabd2774d3c4af50e79cb2b7593e3d5d763ef95c61b
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.1"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -499,6 +515,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_tts:
+    dependency: "direct main"
+    description:
+      name: flutter_tts
+      sha256: ce5eb209b40e95f2f4a1397116c87ab2fcdff32257d04ed7a764e75894c03775
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.5"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -1160,6 +1184,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  pedantic:
+    dependency: transitive
+    description:
+      name: pedantic
+      sha256: "67fc27ed9639506c856c840ccce7594d0bdcd91bc8d53d6e52359449a1d50602"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.11.1"
   permission_handler:
     dependency: "direct main"
     description:
@@ -1445,6 +1477,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.2"
+  speech_to_text:
+    dependency: "direct main"
+    description:
+      name: speech_to_text
+      sha256: c07557664974afa061f221d0d4186935bea4220728ea9446702825e8b988db04
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.3.0"
+  speech_to_text_platform_interface:
+    dependency: transitive
+    description:
+      name: speech_to_text_platform_interface
+      sha256: a1935847704e41ee468aad83181ddd2423d0833abe55d769c59afca07adb5114
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
+  speech_to_text_windows:
+    dependency: transitive
+    description:
+      name: speech_to_text_windows
+      sha256: "2c9846d18253c7bbe059a276297ef9f27e8a2745dead32192525beb208195072"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0+beta.8"
   sqflite:
     dependency: transitive
     description:

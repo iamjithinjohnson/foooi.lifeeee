@@ -13,31 +13,55 @@ class ChatBubble extends StatelessWidget {
       return _buildVerseCard();
     }
 
+    final isAiPart = [
+      'encouragement',
+      'prayer',
+      'action',
+    ].contains(message.type);
+
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
       child: Column(
-        crossAxisAlignment: message.isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        crossAxisAlignment: message.isUser
+            ? CrossAxisAlignment.end
+            : CrossAxisAlignment.start,
         children: [
           if (!message.isUser) _buildAiHeader(),
           Row(
-            mainAxisAlignment: message.isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+            mainAxisAlignment: message.isUser
+                ? MainAxisAlignment.end
+                : MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               if (message.isUser) _buildTime(message.time),
               Flexible(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                    vertical: 12.h,
+                  ),
                   decoration: BoxDecoration(
-                    color: message.isUser ? Colors.white : const Color(0xFFFFEFA7),
+                    color: message.isUser
+                        ? Colors.white
+                        : (isAiPart
+                              ? const Color(0xFFFFF9E1)
+                              : const Color(0xFFFFEFA7)),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20.r),
                       topRight: Radius.circular(20.r),
-                      bottomLeft: message.isUser ? Radius.circular(20.r) : Radius.zero,
-                      bottomRight: message.isUser ? Radius.zero : Radius.circular(20.r),
+                      bottomLeft: message.isUser
+                          ? Radius.circular(20.r)
+                          : Radius.zero,
+                      bottomRight: message.isUser
+                          ? Radius.zero
+                          : Radius.circular(20.r),
                     ),
+                    border: isAiPart
+                        ? Border.all(color: const Color(0xFFFFD54F), width: 1.w)
+                        : null,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.03),
+                        color: Colors.black.withValues(alpha: 0.03),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
@@ -62,17 +86,36 @@ class ChatBubble extends StatelessWidget {
   }
 
   Widget _buildAiHeader() {
+    IconData? icon;
+    String label = 'BIBLE AI';
+
+    switch (message.type) {
+      case 'encouragement':
+        icon = Icons.favorite_rounded;
+        label = 'A MESSAGE FOR YOU';
+        break;
+      case 'prayer':
+        icon = Icons.auto_awesome_rounded;
+        label = 'PRAYER';
+        break;
+      case 'action':
+        icon = Icons.checklist_rounded;
+        label = 'PRACTICAL ACTION';
+        break;
+    }
+
     return Padding(
       padding: EdgeInsets.only(bottom: 8.h),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 8.r,
-            backgroundColor: Colors.orange,
-          ),
+          if (icon != null) ...[
+            Icon(icon, size: 12.sp, color: Colors.orange),
+            SizedBox(width: 4.w),
+          ] else
+            CircleAvatar(radius: 8.r, backgroundColor: Colors.orange),
           SizedBox(width: 8.w),
           Text(
-            'BIBLE AI',
+            label,
             style: TextStyle(
               fontSize: 10.sp,
               fontWeight: FontWeight.bold,

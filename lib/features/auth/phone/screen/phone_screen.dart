@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/widgets/ww_primary_button.dart';
 import 'package:get/get.dart';
 import '../../../../widgets/ww_auth_background.dart';
-import '../../../../widgets/ww_gradient_button.dart';
 import '../../../../widgets/ww_country_picker/ww_country_picker_auth.dart';
 import '../controller/phone_controller.dart';
 
@@ -61,8 +61,8 @@ class PhoneScreen extends GetView<PhoneController> {
                   SizedBox(height: 24.h),
 
                   // Continue Button with Gradient
-                  WwGradientButton(
-                    onTap: controller.onContinue,
+                  WwPrimaryButton(
+                    onPressed: controller.onContinue,
                     text: 'Continue',
                   ),
 

@@ -29,6 +29,8 @@ import '../../features/home/binding/home_binding.dart';
 import '../../features/home/screen/home_screen.dart';
 import '../../features/bible_ai/binding/bible_ai_binding.dart';
 import '../../features/bible_ai/screen/bible_ai_screen.dart';
+import '../../features/bible_ai/binding/speak_to_god_binding.dart';
+import '../../features/bible_ai/screen/speak_to_god_screen.dart';
 import '../../features/prayer/binding/prayer_binding.dart';
 import '../../features/prayer/screen/prayer_screen.dart';
 import '../../features/jobs/screen/jobs_screen.dart';
@@ -40,6 +42,10 @@ import '../../features/matrimony/screen/matrimony_create_screen.dart';
 import '../../features/matrimony/binding/matrimony_binding.dart';
 import '../../features/church/binding/my_church_binding.dart';
 import '../../features/church/screen/my_church_screen.dart';
+import '../../features/community/screen/cito_community_screen.dart';
+import '../../features/community/screen/incubation_innovation_screen.dart';
+import '../../features/community/screen/business_network_screen.dart';
+import '../../features/profile/screen/edit_profile_screen.dart';
 import 'app_routes.dart';
 
 class Nav {
@@ -78,6 +84,11 @@ class Nav {
       name: Routes.BIBLE_AI,
       page: () => const BibleAiScreen(),
       binding: BibleAiBinding(),
+    ),
+    GetPage(
+      name: Routes.SPEAK_TO_GOD,
+      page: () => const SpeakToGodScreen(),
+      binding: SpeakToGodBinding(),
     ),
     GetPage(
       name: Routes.PRAYER,
@@ -160,6 +171,23 @@ class Nav {
       name: Routes.MY_CHURCH,
       page: () => const MyChurchScreen(),
       binding: MyChurchBinding(),
+    ),
+    GetPage(
+      name: Routes.CITO_COMMUNITY,
+      page: () => const CitoCommunityScreen(),
+    ),
+    GetPage(
+      name: Routes.INCUBATION_INNOVATION,
+      page: () => const IncubationInnovationScreen(),
+    ),
+    GetPage(
+      name: Routes.BUSINESS_NETWORK,
+      page: () => const BusinessNetworkScreen(),
+    ),
+    GetPage(
+      name: Routes.EDIT_PROFILE,
+      page: () => const EditProfileScreen(),
+      binding: ProfileBinding(),
     ),
   ];
 }

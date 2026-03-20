@@ -428,107 +428,143 @@ class GrowScreen extends GetView<GrowController> {
   Widget _buildWeeklyReflection(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w),
-      constraints: BoxConstraints(minHeight: 220.h),
+      padding: EdgeInsets.all(24.w),
       decoration: BoxDecoration(
+        color: const Color(0xFF1E293B), // Deep slate for high contrast
         borderRadius: BorderRadius.circular(24.r),
-        image: const DecorationImage(
-          image: AssetImage(AssetsImage.bg_2),
-          fit: BoxFit.cover,
-        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF1E293B).withOpacity(0.1),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
       ),
-      child: Stack(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24.r),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  const Color(0xFF2B5AE1).withOpacity(0.4),
-                  const Color(0xFF2B5AE1),
-                ],
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Icon(
+                  Icons.auto_awesome,
+                  color: Colors.amber,
+                  size: 16.w,
+                ),
               ),
+              SizedBox(width: 12.w),
+              Text(
+                'WEEKLY REFLECTION',
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.6),
+                  letterSpacing: 1.5,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 11.sp,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20.h),
+          Text(
+            'What did God teach you\nthis week?',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.bold,
+              height: 1.2,
+              fontFamily: 'Playfair Display',
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(24.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'WEEKLY REFLECTION',
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.7),
-                    letterSpacing: 1.2,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12.sp,
-                  ),
+          SizedBox(height: 24.h),
+          _buildReflectionButton(),
+          SizedBox(height: 24.h),
+          Divider(color: Colors.white.withOpacity(0.1)),
+          SizedBox(height: 16.h),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(10.w),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.05),
+                  shape: BoxShape.circle,
                 ),
-                SizedBox(height: 12.h),
-                Text(
-                  'What did God teach you this week?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Icon(
+                  Icons.lock_outline,
+                  color: Colors.white.withOpacity(0.7),
+                  size: 18.w,
                 ),
-                SizedBox(height: 24.h),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    minimumSize: Size(double.infinity, 50.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.r),
-                    ),
-                  ),
-                  child: const Text(
-                    'Start Writing',
-                    style: TextStyle(
-                      color: Color(0xFF1E293B),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                Row(
+              ),
+              SizedBox(width: 12.w),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.book_outlined, color: Colors.white, size: 20.w),
-                    SizedBox(width: 8.w),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Private Journal',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'Your reflections are safe and private',
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
-                              fontSize: 12.sp,
-                            ),
-                          ),
-                        ],
+                    Text(
+                      'Private Journal',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14.sp,
                       ),
                     ),
-                    Icon(
-                      Icons.arrow_circle_right_outlined,
-                      color: const Color(0xFFFF4D00),
-                      size: 20.w,
+                    Text(
+                      'Your reflections are safe and private',
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.5),
+                        fontSize: 12.sp,
+                      ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              Icon(
+                Icons.chevron_right,
+                color: Colors.white.withOpacity(0.3),
+                size: 24.w,
+              ),
+            ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildReflectionButton() {
+    return Container(
+      width: double.infinity,
+      height: 54.h,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {},
+          borderRadius: BorderRadius.circular(16.r),
+          child: Center(
+            child: Text(
+              'Start Writing',
+              style: TextStyle(
+                color: const Color(0xFF1E293B),
+                fontWeight: FontWeight.bold,
+                fontSize: 16.sp,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

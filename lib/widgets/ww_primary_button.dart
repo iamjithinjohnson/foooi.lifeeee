@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/app_colors.dart';
 
 class WwPrimaryButton extends StatelessWidget {
   final String text;
@@ -9,6 +10,7 @@ class WwPrimaryButton extends StatelessWidget {
   final double? height;
   final bool isLoading;
   final double? borderRadius;
+  final double? fontSize;
 
   const WwPrimaryButton({
     super.key,
@@ -19,6 +21,7 @@ class WwPrimaryButton extends StatelessWidget {
     this.height,
     this.isLoading = false,
     this.borderRadius,
+    this.fontSize,
   });
 
   @override
@@ -29,7 +32,8 @@ class WwPrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: color ?? Colors.black, // Default to Black for Login
+          backgroundColor:
+              color ?? AppColors.primary, // Default to Black for Login
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 30.r),
@@ -48,7 +52,7 @@ class WwPrimaryButton extends StatelessWidget {
             : Text(
                 text,
                 style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: fontSize ?? 16.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),

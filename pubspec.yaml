@@ -74,6 +74,7 @@ dependencies:
   pin_code_fields: ^9.1.0                  # OTP/PIN input fields
 
   # --- Utilities & Helpers ---
+  flutter_dotenv: ^5.2.1
   share_plus: ^12.0.1                       # Core share functionality
   intl: ^0.20.2                          # Internationalization and date formatting
   # uuid: ^4.5.1                             # Unique ID generation
@@ -109,6 +110,9 @@ dependencies:
   # --- Feature Specific ---
   razorpay_flutter: ^1.4.0                 # Razorpay payment gateway
   country_code_picker: ^3.4.1              # Country selection with flags
+  convex_bottom_bar: ^3.2.0
+  speech_to_text: 7.3.0
+  flutter_tts: ^4.2.5
 
 
 
@@ -140,6 +144,7 @@ flutter:
     - assets/svgs/
     - assets/images/
     - assets/
+    - .env
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package

@@ -20,7 +20,7 @@ class BibleAiInputBar extends GetView<BibleAiController> {
           borderRadius: BorderRadius.circular(24.r),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -42,23 +42,30 @@ class BibleAiInputBar extends GetView<BibleAiController> {
             SizedBox(height: 12.h),
             Row(
               children: [
-                _buildIconButton(Icons.add),
-                SizedBox(width: 8.w),
-                _buildIconButton(Icons.tune),
+                Obx(() => _buildMicButton()),
                 const Spacer(),
-                _buildModelSelector(),
-                SizedBox(width: 12.w),
                 Obx(() => GestureDetector(
-                  onTap: () => controller.sendMessage(controller.textController.text),
+                  onTap: controller.isLoading.value 
+                      ? null 
+                      : () => controller.sendMessage(controller.textController.text),
                   child: Container(
                     padding: EdgeInsets.all(12.w),
                     decoration: BoxDecoration(
-                      color: controller.isTextEmpty.value 
-                          ? Colors.orange.withOpacity(0.5) 
+                      color: (controller.isTextEmpty.value || controller.isLoading.value)
+                          ? Colors.orange.withValues(alpha: 0.5) 
                           : Colors.orange,
                       borderRadius: BorderRadius.circular(12.r),
                     ),
-                    child: const Icon(Icons.arrow_upward, color: Colors.white),
+                    child: controller.isLoading.value
+                        ? SizedBox(
+                            width: 20.w,
+                            height: 20.w,
+                            child: const CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : const Icon(Icons.arrow_upward, color: Colors.white),
                   ),
                 )),
               ],
@@ -69,33 +76,24 @@ class BibleAiInputBar extends GetView<BibleAiController> {
     );
   }
 
-  Widget _buildIconButton(IconData icon) {
-    return Container(
-      padding: EdgeInsets.all(8.w),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black12),
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Icon(icon, color: Colors.black54, size: 20.w),
-    );
-  }
-
-  Widget _buildModelSelector() {
-    return InkWell(
-      onTap: () {}, // Handle model selection
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Obx(() => Text(
-            controller.selectedModel.value,
-            style: TextStyle(
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black87,
-            ),
-          )),
-          const Icon(Icons.keyboard_arrow_down, color: Colors.black54),
-        ],
+  Widget _buildMicButton() {
+    final isListening = controller.isListening.value;
+    return GestureDetector(
+      onTapDown: (_) => controller.startListening(),
+      onTapUp: (_) => controller.stopListening(),
+      onTapCancel: () => controller.stopListening(),
+      child: Container(
+        padding: EdgeInsets.all(8.w),
+        decoration: BoxDecoration(
+          color: isListening ? Colors.red.withValues(alpha: 0.1) : Colors.transparent,
+          border: Border.all(color: isListening ? Colors.red : Colors.black12),
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        child: Icon(
+          isListening ? Icons.mic : Icons.mic_none, 
+          color: isListening ? Colors.red : Colors.black54, 
+          size: 20.w
+        ),
       ),
     );
   }

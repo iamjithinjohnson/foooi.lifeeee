@@ -18,7 +18,7 @@ class SuggestionCard extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(16.w),
         decoration: BoxDecoration(
-          color: const Color(0xFFD3E6F5).withOpacity(0.5),
+          color: const Color(0xFFD3E6F5).withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(20.r),
         ),
         child: Column(
@@ -30,7 +30,7 @@ class SuggestionCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF2B5AE1).withOpacity(0.4),
+                color: const Color(0xFF2B5AE1).withValues(alpha: 0.4),
                 letterSpacing: 1.0,
               ),
             ),

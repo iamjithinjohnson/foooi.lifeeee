@@ -18,37 +18,62 @@ class PrayerHeader extends GetView<PrayerController> {
           alignment: Alignment.topCenter,
         ),
       ),
-      child: Column(
+      child: Stack(
         children: [
-          SizedBox(height: MediaQuery.of(context).padding.top + 20.h),
-          Text(
-            'Practice',
-            style: Theme.of(context).textTheme.displayMedium?.copyWith(
+          Column(
+            children: [
+              SizedBox(height: MediaQuery.of(context).padding.top + 20.h),
+              Text(
+                'Practice',
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
                   fontSize: 32.sp,
                 ),
-          ),
-          SizedBox(height: 8.h),
-          Text(
-            'Small steps count',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              ),
+              SizedBox(height: 8.h),
+              Text(
+                'Small steps count',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   fontSize: 16.sp,
                   color: const Color(0xFF64748B),
                 ),
+              ),
+              SizedBox(height: 40.h),
+              // SizedBox(height: 30.h),
+              // _buildTabs(),
+            ],
           ),
-          SizedBox(height: 30.h),
-          _buildTabs(),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 40.h,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.white.withOpacity(0.0),
+                    Colors.white.withOpacity(0.8),
+                    Colors.white,
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
+/*
   Widget _buildTabs() {
     return Obx(
       () => Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _buildTabItem(0, 'Practice Hub'),
-          _buildTabItem(1, 'Your journey'),
+          // _buildTabItem(1, 'Your journey'),
         ],
       ),
     );
@@ -81,4 +106,5 @@ class PrayerHeader extends GetView<PrayerController> {
       ),
     );
   }
+*/
 }

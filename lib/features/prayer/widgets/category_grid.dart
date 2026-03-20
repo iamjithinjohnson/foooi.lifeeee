@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 import '../controller/prayer_controller.dart';
 
@@ -23,7 +24,7 @@ class CategoryGrid extends GetView<PrayerController> {
       itemBuilder: (context, index) {
         final category = controller.categories[index];
         return GestureDetector(
-          onTap: () => Get.toNamed('/prayer-content'),
+          onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
           child: Column(
             children: [
               SvgPicture.asset(category['icon']!),
@@ -34,9 +35,9 @@ class CategoryGrid extends GetView<PrayerController> {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),

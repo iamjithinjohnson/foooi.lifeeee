@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foi/utils/assets/image_assets.dart';
 import 'package:foi/utils/assets/svg_assets.dart';
 import 'package:foi/utils/routes/app_routes.dart';
-import 'package:foi/widgets/ww_gradient_button.dart';
+import 'package:foi/widgets/ww_primary_button.dart';
 import 'package:get/get.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -43,12 +43,12 @@ class HomeHeader extends StatelessWidget {
                   color: const Color(0xFF1E293B),
                 ),
               ),
-              WwGradientButton(
+              WwPrimaryButton(
                 width: 90.w,
                 height: 38.h,
                 text: 'Ask AI',
                 fontSize: 14.sp,
-                onTap: () => Get.toNamed(Routes.BIBLE_AI),
+                onPressed: () => Get.toNamed(Routes.BIBLE_AI),
               ),
             ],
           ),

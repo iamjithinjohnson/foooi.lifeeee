@@ -10,26 +10,38 @@ class PracticeToolGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildToolItem(
-            context,
-            'Need Guidance',
-            'Day-to-day journey',
-            AssetsSvg.bible,
+          Text(
+            'Your space to connect with God',
+            style: Theme.of(
+              context,
+            ).textTheme.displayMedium?.copyWith(fontSize: 22.sp),
           ),
-          _buildToolItem(
-            context,
-            'Speak your prayer',
-            'Day-to-day journey',
-            AssetsSvg.speak,
-          ),
-          _buildToolItem(
-            context,
-            'Write your prayer',
-            'Beal — understand',
-            AssetsSvg.write,
+          SizedBox(height: 16.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildToolItem(
+                context,
+                'Need Guidance',
+                'Day-to-day journey',
+                AssetsSvg.bible,
+              ),
+              _buildToolItem(
+                context,
+                'Speak your prayer',
+                'Day-to-day journey',
+                AssetsSvg.speak,
+              ),
+              _buildToolItem(
+                context,
+                'Write your prayer',
+                'Beal — understand',
+                AssetsSvg.write,
+              ),
+            ],
           ),
         ],
       ),
@@ -58,17 +70,17 @@ class PracticeToolGrid extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.bold,
-                ),
+              fontSize: 13.sp,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(height: 4.h),
           Text(
             subtitle,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontSize: 10.sp,
-                  color: const Color(0xFF64748B),
-                ),
+              fontSize: 10.sp,
+              color: const Color(0xFF64748B),
+            ),
           ),
         ],
       ),

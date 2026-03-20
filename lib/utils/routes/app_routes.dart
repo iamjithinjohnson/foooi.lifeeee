@@ -24,4 +24,9 @@ class Routes {
   static const String MATRIMONY = '/matrimony';
   static const String MATRIMONY_CREATE = '/matrimony-create';
   static const String MY_CHURCH = '/my-church';
+  static const String CITO_COMMUNITY = '/cito-community';
+  static const String INCUBATION_INNOVATION = '/incubation-innovation';
+  static const String BUSINESS_NETWORK = '/business-network';
+  static const String EDIT_PROFILE = '/edit-profile';
+  static const String SPEAK_TO_GOD = '/speak-to-god';
 }

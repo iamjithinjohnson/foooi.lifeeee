@@ -83,30 +83,36 @@ class ProfileScreen extends GetView<ProfileController> {
               ],
             ),
             SizedBox(height: 16.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Sebastian Stan',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0F172A),
+            Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    controller.name.value,
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF0F172A),
+                    ),
                   ),
-                ),
-                SizedBox(width: 8.w),
-                Icon(Icons.stars, color: Colors.blue, size: 20.w),
-              ],
+                  SizedBox(width: 8.w),
+                  Icon(Icons.stars, color: Colors.blue, size: 20.w),
+                ],
+              ),
             ),
             SizedBox(height: 4.h),
-            Text(
-              'Grace Community Church',
-              style: TextStyle(fontSize: 14.sp, color: const Color(0xFF64748B)),
+            Obx(
+              () => Text(
+                controller.church.value,
+                style: TextStyle(fontSize: 14.sp, color: const Color(0xFF64748B)),
+              ),
             ),
             SizedBox(height: 4.h),
-            Text(
-              'Worship Leader • Member since 2015',
-              style: TextStyle(fontSize: 12.sp, color: const Color(0xFF94A3B8)),
+            Obx(
+              () => Text(
+                controller.bio.value,
+                style: TextStyle(fontSize: 12.sp, color: const Color(0xFF94A3B8)),
+              ),
             ),
           ],
         ),
@@ -118,7 +124,7 @@ class ProfileScreen extends GetView<ProfileController> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: OutlinedButton(
-        onPressed: () {},
+        onPressed: () => Get.toNamed(Routes.EDIT_PROFILE),
         style: OutlinedButton.styleFrom(
           side: const BorderSide(color: Color(0xFF1E293B)),
           minimumSize: Size(160.w, 44.h),
@@ -149,7 +155,11 @@ class ProfileScreen extends GetView<ProfileController> {
             '🙏',
             onTap: () => Get.toNamed(Routes.MY_CHURCH),
           ),
-          _buildQuickActionItem('CITO Community', '🤝', onTap: () {}),
+          _buildQuickActionItem(
+            'CITO Community',
+            '🤝',
+            onTap: () => Get.toNamed(Routes.CITO_COMMUNITY),
+          ),
           _buildQuickActionItem(
             'Jobs',
             '💼',

@@ -99,7 +99,6 @@ class LoginScreen extends GetView<LoginController> {
                   WwPrimaryButton(
                     text: 'Continue with Phone Number',
                     onPressed: controller.onContinueWithPhone,
-                    color: Colors.black,
                     borderRadius: 30.r,
                   ),
 

@@ -26,9 +26,14 @@ class BibleAiScreen extends GetView<BibleAiController> {
               _buildHeader(),
               Expanded(
                 child: Obx(
-                  () => controller.messages.isEmpty
-                      ? _buildEmptyState()
-                      : _buildChatList(),
+                  () {
+                    final messages = controller.messages
+                        .where((m) => m.type != 'prayer' && m.type != 'action')
+                        .toList();
+                    return messages.isEmpty
+                        ? _buildEmptyState()
+                        : _buildChatList(messages);
+                  },
                 ),
               ),
               const BibleAiInputBar(),
@@ -110,7 +115,7 @@ class BibleAiScreen extends GetView<BibleAiController> {
     );
   }
 
-  Widget _buildChatList() {
+  Widget _buildChatList(List<Message> messages) {
     return Column(
       children: [
         Padding(
@@ -128,9 +133,9 @@ class BibleAiScreen extends GetView<BibleAiController> {
         Expanded(
           child: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            itemCount: controller.messages.length,
+            itemCount: messages.length,
             itemBuilder: (context, index) {
-              final message = controller.messages[index];
+              final message = messages[index];
               return ChatBubble(message: message);
             },
           ),

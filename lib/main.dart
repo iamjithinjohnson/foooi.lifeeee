@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foi/utils/routes/app_routes.dart';
@@ -10,6 +11,7 @@ import 'package:foi/utils/di/dependency_creator.dart';
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await dotenv.load(fileName: ".env");
   await DependencyCreator.init();
   runApp(const MyApp());
 }
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'FOI',
           theme: AppTheme.lightTheme,
-          initialRoute: Routes.LOGIN,
+          initialRoute: Routes.MAIN,
           getPages: Nav.routes,
         );
       },
