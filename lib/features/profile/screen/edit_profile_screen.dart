@@ -69,18 +69,21 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             _buildProfileImage(),
             SizedBox(height: 32.h),
             WwTextField(
+              enableBorder: true,
               controller: nameController,
               title: 'Full Name',
               hintText: 'Enter your full name',
             ),
             SizedBox(height: 16.h),
             WwTextFieldEmail(
+              enableBorder: true,
               controller: emailController,
               title: 'Email Address',
               hintText: 'example@email.com',
             ),
             SizedBox(height: 16.h),
             WwTextFieldPhone(
+              enableBorder: true,
               controller: phoneController,
               title: 'Phone Number',
               hintText: 'Enter phone number',
@@ -90,29 +93,31 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             SizedBox(height: 16.h),
             WwTextField(
+              enableBorder: true,
               controller: churchController,
               title: 'Church',
               hintText: 'Current church name',
             ),
-             SizedBox(height: 16.h),
+            SizedBox(height: 16.h),
             WwTextField(
+              enableBorder: true,
               controller: bioController,
               title: 'Bio',
               hintText: 'Tell members about yourself...',
             ),
             SizedBox(height: 48.h),
-             WwPrimaryButton(
-               onPressed: () {
-                 controller.updateProfile(
-                    newName: nameController.text,
-                    newEmail: emailController.text,
-                    newPhone: phoneController.text,
-                    newBio: bioController.text,
-                    newChurch: churchController.text,
-                 );
-               },
-               text: 'Save Changes',
-             ),
+            WwPrimaryButton(
+              onPressed: () {
+                controller.updateProfile(
+                  newName: nameController.text,
+                  newEmail: emailController.text,
+                  newPhone: phoneController.text,
+                  newBio: bioController.text,
+                  newChurch: churchController.text,
+                );
+              },
+              text: 'Save Changes',
+            ),
           ],
         ),
       ),

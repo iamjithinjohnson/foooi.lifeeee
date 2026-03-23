@@ -3,9 +3,10 @@ import 'package:foi/features/prayer/screen/music_list_screen.dart';
 import 'package:foi/features/prayer/screen/audio_player_screen.dart';
 import 'package:foi/features/prayer/screen/prayer_content_screen.dart';
 import 'package:foi/features/grow/screen/grow_screen.dart';
-import 'package:foi/features/grow/screen/morning_routine_screen.dart';
-import 'package:foi/features/grow/screen/night_routine_screen.dart';
+import 'package:foi/features/morning_night_routine/screen/morning_routine_screen.dart';
+import 'package:foi/features/morning_night_routine/screen/night_routine_screen.dart';
 import 'package:foi/features/grow/screen/plan_detail_screen.dart';
+import 'package:foi/features/morning_night_routine/binding/morning_night_routine_binding.dart';
 import 'package:foi/features/library/screen/library_screen.dart';
 import 'package:foi/features/library/binding/library_binding.dart';
 import 'package:foi/features/profile/screen/profile_screen.dart';
@@ -125,10 +126,12 @@ class Nav {
     GetPage(
       name: Routes.MORNING_ROUTINE,
       page: () => const MorningRoutineScreen(),
+      binding: MorningNightRoutineBinding(),
     ),
     GetPage(
       name: Routes.NIGHT_ROUTINE,
       page: () => const NightRoutineScreen(),
+      binding: MorningNightRoutineBinding(),
     ),
     GetPage(
       name: Routes.PLAN_DETAIL,

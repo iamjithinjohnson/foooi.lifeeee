@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AppConstants {
   AppConstants._();
+
+  static const screenWPadding = EdgeInsets.symmetric(horizontal: 15);
 
   static String get bibleApiKey => dotenv.env['BIBLE_AI_KEY'] ?? '';
 
