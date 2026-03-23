@@ -47,6 +47,7 @@ import '../../features/community/screen/cito_community_screen.dart';
 import '../../features/community/screen/incubation_innovation_screen.dart';
 import '../../features/community/screen/business_network_screen.dart';
 import '../../features/profile/screen/edit_profile_screen.dart';
+import 'package:foi/features/grow/screen/reading_session_screen.dart';
 import 'app_routes.dart';
 
 class Nav {
@@ -136,6 +137,11 @@ class Nav {
     GetPage(
       name: Routes.PLAN_DETAIL,
       page: () => const PlanDetailScreen(),
+      binding: GrowBinding(),
+    ),
+    GetPage(
+      name: Routes.READING_SESSION,
+      page: () => const ReadingSessionScreen(),
     ),
     GetPage(
       name: Routes.LIBRARY,

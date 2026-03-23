@@ -16,6 +16,7 @@ class Routes {
   static const String MORNING_ROUTINE = '/morning-routine';
   static const String NIGHT_ROUTINE = '/night-routine';
   static const String PLAN_DETAIL = '/plan-detail';
+  static const String READING_SESSION = '/reading-session';
   static const String LIBRARY = '/library';
   static const String PROFILE = '/profile';
   static const String SETTINGS = '/settings';
