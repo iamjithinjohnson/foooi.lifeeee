@@ -283,6 +283,12 @@ class ProfileScreen extends GetView<ProfileController> {
                 _buildMenuItem(Icons.bookmark_border, 'Saved Items'),
                 const Divider(height: 1, color: Color(0xFFF1F5F9)),
                 _buildMenuItem(
+                  Icons.library_books_outlined,
+                  'Library',
+                  onTap: () => Get.toNamed(Routes.LIBRARY),
+                ),
+                const Divider(height: 1, color: Color(0xFFF1F5F9)),
+                _buildMenuItem(
                   Icons.settings_outlined,
                   'Settings',
                   onTap: () => Get.toNamed(Routes.SETTINGS),

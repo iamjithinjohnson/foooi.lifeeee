@@ -23,7 +23,7 @@ class BibleAiService {
           },
         ),
         data: {
-          "model": "gpt-4o-mini",
+          "model": "gpt-5-mini",
           "messages": [
             {"role": "system", "content": AppConstants.bibleAiSystemPrompt},
             {"role": "user", "content": query},
@@ -33,11 +33,12 @@ class BibleAiService {
       );
 
       if (response.statusCode == 200) {
-        String content = response.data['choices'][0]['message']['content']?.toString() ?? '';
+        String content =
+            response.data['choices'][0]['message']['content']?.toString() ?? '';
         if (content.isEmpty) {
           throw Exception('Received empty content from AI');
         }
-        
+
         // Strip markdown code blocks if present
         if (content.startsWith('```')) {
           final lines = content.split('\n');
@@ -45,7 +46,7 @@ class BibleAiService {
             content = lines.sublist(1, lines.length - 1).join('\n');
           }
         }
-        
+
         log('API Response Content (Stripped): $content');
         final decoded = jsonDecode(content);
         if (decoded is! Map) {

@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'FOI',
           theme: AppTheme.lightTheme,
-          initialRoute: Routes.MAIN,
+          initialRoute: Routes.LOGIN,
           getPages: Nav.routes,
         );
       },

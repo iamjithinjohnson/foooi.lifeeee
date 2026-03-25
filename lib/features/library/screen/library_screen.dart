@@ -41,47 +41,66 @@ class LibraryScreen extends GetView<LibraryController> {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 250.h,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AssetsImage.bg_1),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.black.withOpacity(0.1), Colors.white],
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 250.h,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AssetsImage.bg_1),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.black.withOpacity(0.1), Colors.white],
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 60.h),
+                SvgPicture.asset(AssetsSvg.praise, width: 44.w),
+                SizedBox(height: 12.h),
+                Text(
+                  'Library',
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                    fontSize: 36.sp,
+                    fontFamily: 'Playfair Display',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Worship, devotionals, and resources',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: const Color(0xFF64748B),
+                    fontSize: 16.sp,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 60.h),
-            SvgPicture.asset(AssetsSvg.praise, width: 44.w),
-            SizedBox(height: 12.h),
-            Text(
-              'Library',
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                fontSize: 36.sp,
-                fontFamily: 'Playfair Display',
-                fontWeight: FontWeight.bold,
+        Positioned(
+          top: 50.h,
+          left: 16.w,
+          child: IconButton(
+            onPressed: () => Get.back(),
+            icon: Container(
+              padding: EdgeInsets.all(8.r),
+              decoration: const BoxDecoration(
+                color: Colors.white70,
+                shape: BoxShape.circle,
               ),
+              child: Icon(Icons.arrow_back, color: Colors.black87, size: 20.sp),
             ),
-            Text(
-              'Worship, devotionals, and resources',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: const Color(0xFF64748B),
-                fontSize: 16.sp,
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -98,10 +117,21 @@ class LibraryScreen extends GetView<LibraryController> {
         child: TextField(
           decoration: InputDecoration(
             hintText: 'Search for scenarios...',
-            hintStyle: TextStyle(color: const Color(0xFF94A3B8), fontSize: 14.sp),
+            hintStyle: TextStyle(
+              color: const Color(0xFF94A3B8),
+              fontSize: 14.sp,
+            ),
             border: InputBorder.none,
-            icon: Icon(Icons.search, color: const Color(0xFF64748B), size: 20.w),
-            suffixIcon: Icon(Icons.mic_none, color: const Color(0xFF64748B), size: 20.w),
+            icon: Icon(
+              Icons.search,
+              color: const Color(0xFF64748B),
+              size: 20.w,
+            ),
+            suffixIcon: Icon(
+              Icons.mic_none,
+              color: const Color(0xFF64748B),
+              size: 20.w,
+            ),
           ),
         ),
       ),
@@ -168,7 +198,10 @@ class LibraryScreen extends GetView<LibraryController> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.r),
             gradient: LinearGradient(
-              colors: [const Color(0xFFC00060).withOpacity(0.8), const Color(0xFF9000C0).withOpacity(0.8)],
+              colors: [
+                const Color(0xFFC00060).withOpacity(0.8),
+                const Color(0xFF9000C0).withOpacity(0.8),
+              ],
             ),
           ),
           padding: EdgeInsets.all(20.w),
@@ -196,17 +229,31 @@ class LibraryScreen extends GetView<LibraryController> {
               const Spacer(),
               Row(
                 children: [
-                  Icon(Icons.access_time, color: Colors.white.withOpacity(0.8), size: 16.w),
+                  Icon(
+                    Icons.access_time,
+                    color: Colors.white.withOpacity(0.8),
+                    size: 16.w,
+                  ),
                   SizedBox(width: 4.w),
                   Text(
                     '7 min today • Resume',
-                    style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 13.sp),
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 13.sp,
+                    ),
                   ),
                   const Spacer(),
                   Container(
                     padding: EdgeInsets.all(8.w),
-                    decoration: const BoxDecoration(color: Colors.white24, shape: BoxShape.circle),
-                    child: Icon(Icons.arrow_forward, color: Colors.white, size: 16.w),
+                    decoration: const BoxDecoration(
+                      color: Colors.white24,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 16.w,
+                    ),
                   ),
                 ],
               ),
@@ -224,8 +271,16 @@ class LibraryScreen extends GetView<LibraryController> {
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         children: [
-          _buildDevotionalItem('Finding Rest in a Busy World', '7 MIN • PASTOR DAVID', AssetsImage.bg_1),
-          _buildDevotionalItem('The Power of Prayers', '7 MIN • GENT', AssetsImage.bg_2),
+          _buildDevotionalItem(
+            'Finding Rest in a Busy World',
+            '7 MIN • PASTOR DAVID',
+            AssetsImage.bg_1,
+          ),
+          _buildDevotionalItem(
+            'The Power of Prayers',
+            '7 MIN • GENT',
+            AssetsImage.bg_2,
+          ),
         ],
       ),
     );
@@ -257,12 +312,19 @@ class LibraryScreen extends GetView<LibraryController> {
             const Spacer(),
             Text(
               title,
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.sp),
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16.sp,
+              ),
             ),
             SizedBox(height: 4.h),
             Text(
               subtitle,
-              style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 11.sp),
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.8),
+                fontSize: 11.sp,
+              ),
             ),
           ],
         ),
@@ -305,14 +367,24 @@ class LibraryScreen extends GetView<LibraryController> {
             _buildPlaylistItem('Focus & Study', '45 min', Colors.blue),
             _buildPlaylistItem('Sleep & Rest', '45 min', Colors.orange),
             _buildPlaylistItem('Joy & Praise', '45 min', Colors.red),
-            _buildPlaylistItem('Morning Worship', '45 min', Colors.pink, isLast: true),
+            _buildPlaylistItem(
+              'Morning Worship',
+              '45 min',
+              Colors.pink,
+              isLast: true,
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildPlaylistItem(String title, String duration, Color color, {bool isLast = false}) {
+  Widget _buildPlaylistItem(
+    String title,
+    String duration,
+    Color color, {
+    bool isLast = false,
+  }) {
     return Container(
       margin: EdgeInsets.only(bottom: isLast ? 0 : 16.h),
       child: Row(
@@ -334,11 +406,18 @@ class LibraryScreen extends GetView<LibraryController> {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp, color: const Color(0xFF402000)),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.sp,
+                    color: const Color(0xFF402000),
+                  ),
                 ),
                 Text(
                   duration,
-                  style: TextStyle(color: const Color(0xFF907040), fontSize: 12.sp),
+                  style: TextStyle(
+                    color: const Color(0xFF907040),
+                    fontSize: 12.sp,
+                  ),
                 ),
               ],
             ),
@@ -356,8 +435,16 @@ class LibraryScreen extends GetView<LibraryController> {
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         children: [
-          _buildSermonItem('Trusting God in Uncertainty', '7 MIN • PASTOR DAVID', AssetsImage.bg_1),
-          _buildSermonItem('The Power of Prayers', '7 MIN • GENT', AssetsImage.bg_2),
+          _buildSermonItem(
+            'Trusting God in Uncertainty',
+            '7 MIN • PASTOR DAVID',
+            AssetsImage.bg_1,
+          ),
+          _buildSermonItem(
+            'The Power of Prayers',
+            '7 MIN • GENT',
+            AssetsImage.bg_2,
+          ),
         ],
       ),
     );
@@ -387,18 +474,32 @@ class LibraryScreen extends GetView<LibraryController> {
           children: [
             Container(
               padding: EdgeInsets.all(6.w),
-              decoration: const BoxDecoration(color: Colors.white24, shape: BoxShape.circle),
-              child: const Icon(Icons.play_arrow, color: Colors.white, size: 18),
+              decoration: const BoxDecoration(
+                color: Colors.white24,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.play_arrow,
+                color: Colors.white,
+                size: 18,
+              ),
             ),
             const Spacer(),
             Text(
               title,
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.sp),
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16.sp,
+              ),
             ),
             SizedBox(height: 4.h),
             Text(
               subtitle,
-              style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 11.sp),
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.8),
+                fontSize: 11.sp,
+              ),
             ),
           ],
         ),
