@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../service/auth_service.dart';
+import '../../../../utils/routes/app_routes.dart';
 
 class SetupProfileController extends GetxController {
   final nameController = TextEditingController();
@@ -48,6 +50,11 @@ class SetupProfileController extends GetxController {
     } else {
       Get.back();
     }
+  }
+
+  void finishSetup() {
+    Get.find<AuthService>().login();
+    Get.offAllNamed(Routes.MAIN);
   }
 
   double get progress => (currentStep.value + 1) / totalSteps;

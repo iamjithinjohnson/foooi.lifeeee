@@ -302,6 +302,7 @@ class ProfileScreen extends GetView<ProfileController> {
                   Icons.logout,
                   'Logout',
                   color: const Color(0xFFEF4444),
+                  onTap: () => controller.logout(),
                 ),
               ],
             ),

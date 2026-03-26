@@ -49,6 +49,7 @@ import '../../features/community/screen/business_network_screen.dart';
 import '../../features/profile/screen/edit_profile_screen.dart';
 import 'package:foi/features/grow/screen/reading_session_screen.dart';
 import 'app_routes.dart';
+import 'auth_middleware.dart';
 
 class Nav {
   static List<GetPage> routes = [
@@ -56,147 +57,178 @@ class Nav {
       name: Routes.MAIN,
       page: () => const MainScreen(),
       binding: MainBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginScreen(),
       binding: LoginBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.PHONE,
       page: () => const PhoneScreen(),
       binding: PhoneBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.OTP,
       page: () => const OtpScreen(),
       binding: OtpBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.SETUP_PROFILE,
       page: () => const SetupProfileScreen(),
       binding: SetupProfileBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.HOME,
       page: () => const HomeScreen(),
       binding: HomeBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.BIBLE_AI,
       page: () => const BibleAiScreen(),
       binding: BibleAiBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.SPEAK_TO_GOD,
       page: () => const SpeakToGodScreen(),
       binding: SpeakToGodBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.PRAYER,
       page: () => const PrayerScreen(),
       binding: PrayerBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.PRAYER_REQUEST,
       page: () => const PrayerRequestScreen(),
       binding: PrayerRequestBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.JOURNEY_DETAIL,
       page: () => const JourneyDetailScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.MUSIC_LIST,
       page: () => const MusicListScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.AUDIO_PLAYER,
       page: () => const AudioPlayerScreen(),
       binding: AudioPlayerBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.PRAYER_CONTENT,
       page: () => const PrayerContentScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.GROW,
       page: () => const GrowScreen(),
       binding: GrowBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.MORNING_ROUTINE,
       page: () => const MorningRoutineScreen(),
       binding: MorningNightRoutineBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.NIGHT_ROUTINE,
       page: () => const NightRoutineScreen(),
       binding: MorningNightRoutineBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.PLAN_DETAIL,
       page: () => const PlanDetailScreen(),
       binding: GrowBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.READING_SESSION,
       page: () => const ReadingSessionScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.LIBRARY,
       page: () => const LibraryScreen(),
       binding: LibraryBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.PROFILE,
       page: () => const ProfileScreen(),
       binding: ProfileBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.SETTINGS,
       page: () => const SettingsScreen(),
       binding: SettingsBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.JOBS,
       page: () => const JobsScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.JOB_CREATE,
       page: () => const JobCreateScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.MATRIMONY,
       page: () => const MatrimonyScreen(),
       binding: MatrimonyBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.MATRIMONY_CREATE,
       page: () => const MatrimonyCreateScreen(),
       binding: MatrimonyBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.MY_CHURCH,
       page: () => const MyChurchScreen(),
       binding: MyChurchBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.CITO_COMMUNITY,
       page: () => const CitoCommunityScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.INCUBATION_INNOVATION,
       page: () => const IncubationInnovationScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.BUSINESS_NETWORK,
       page: () => const BusinessNetworkScreen(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: Routes.EDIT_PROFILE,
       page: () => const EditProfileScreen(),
       binding: ProfileBinding(),
+      middlewares: [AuthMiddleware()],
     ),
   ];
 }

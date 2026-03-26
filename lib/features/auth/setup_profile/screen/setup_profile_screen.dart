@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 import '../../../../utils/assets/image_assets.dart';
 import '../../../../widgets/ww_auth_background.dart';
@@ -618,7 +617,7 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
         ),
         SizedBox(height: 40.h),
         GestureDetector(
-          onTap: () => Get.offAllNamed(Routes.MAIN),
+          onTap: controller.finishSetup,
           child: Container(
             width: 200.w,
             padding: EdgeInsets.symmetric(vertical: 12.h),

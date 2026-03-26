@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../../service/auth_service.dart';
 
 class ProfileController extends GetxController {
   final RxBool businessListing = false.obs;
@@ -27,5 +28,9 @@ class ProfileController extends GetxController {
     church.value = newChurch;
     Get.back();
     Get.snackbar('Success', 'Profile updated successfully', snackPosition: SnackPosition.BOTTOM);
+  }
+
+  void logout() {
+    Get.find<AuthService>().logout();
   }
 }
