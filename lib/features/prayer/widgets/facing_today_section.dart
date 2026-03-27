@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foi/utils/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class FacingTodaySection extends StatelessWidget {
@@ -27,21 +28,24 @@ class FacingTodaySection extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             children: [
               GestureDetector(
-                onTap: () => Get.toNamed('/music-list'),
+                onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+                // onTap: () => Get.toNamed('/music-list'),
                 child: _buildFacingCard(
                   'Anxiety',
                   'https://picsum.photos/seed/anxiety/200/200',
                 ),
               ),
               GestureDetector(
-                onTap: () => Get.toNamed('/music-list'),
+                onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+                // onTap: () => Get.toNamed('/music-list'),
                 child: _buildFacingCard(
                   'Wisdom',
                   'https://picsum.photos/seed/wisdom/200/200',
                 ),
               ),
               GestureDetector(
-                onTap: () => Get.toNamed('/music-list'),
+                onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+                // onTap: () => Get.toNamed('/music-list'),
                 child: _buildFacingCard(
                   'Forgiveness',
                   'https://picsum.photos/seed/forgive/200/200',

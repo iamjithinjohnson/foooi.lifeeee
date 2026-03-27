@@ -1,4 +1,4 @@
-package com.foi.app.foi
+package com.foi.life
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -8,7 +8,7 @@
 PRODUCT_NAME = foi
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.foi.app.foi
+PRODUCT_BUNDLE_IDENTIFIER = com.foi.life
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2026 com.foi.app. All rights reserved.

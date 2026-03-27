@@ -26,9 +26,26 @@ class QuickActions extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildActionItem(context, 'Pray\nNow', AssetsSvg.prayNow),
-            _buildActionItem(context, '30-sec Prayer', AssetsSvg.secondsPrayer),
-            _buildActionItem(context, 'Exam Stress', AssetsSvg.examStress),
+            _buildActionItem(
+              context,
+              'Pray\nNow',
+              AssetsSvg.prayNow,
+              onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+            ),
+            _buildActionItem(
+              context,
+              '30-sec Prayer',
+              AssetsSvg.secondsPrayer,
+
+              onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+            ),
+            _buildActionItem(
+              context,
+              'Exam Stress',
+              AssetsSvg.examStress,
+
+              onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+            ),
             _buildActionItem(
               context,
               'Prayer Request',
@@ -53,18 +70,18 @@ class QuickActions extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SvgPicture.asset(svgAsset),
-        SizedBox(height: 12.h),
-        SizedBox(
-          width: 80.w,
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w600,
+          SizedBox(height: 12.h),
+          SizedBox(
+            width: 80.w,
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
-        ),
         ],
       ),
     );
