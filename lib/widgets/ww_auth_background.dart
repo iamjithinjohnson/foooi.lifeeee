@@ -18,7 +18,13 @@ class WwAuthBackground extends StatelessWidget {
         // Background Image
         Positioned.fill(
           top: top,
-          child: Image.asset(AssetsImage.bg_1, fit: fit),
+          child: Image.asset(
+            AssetsImage.bg_2,
+            fit: fit,
+            cacheWidth: 1000, // Reduced memory usage from 5.5MB file
+            filterQuality: FilterQuality.low,
+            gaplessPlayback: true,
+          ),
         ),
 
         // White Shade Gradient
@@ -28,10 +34,7 @@ class WwAuthBackground extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  Colors.white.withAlpha(0),
-                  Colors.white,
-                ],
+                colors: [Colors.white.withAlpha(0), Colors.white],
                 stops: const [0.0, 0.4],
               ),
             ),

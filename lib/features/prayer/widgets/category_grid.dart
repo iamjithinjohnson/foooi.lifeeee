@@ -24,7 +24,7 @@ class CategoryGrid extends GetView<PrayerController> {
       itemBuilder: (context, index) {
         final category = controller.categories[index];
         return GestureDetector(
-          onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+          onTap: () => Get.toNamed(Routes.PRAYER_SITUATION, arguments: {'category': category['title']}),
           child: Column(
             children: [
               SvgPicture.asset(category['icon']!),

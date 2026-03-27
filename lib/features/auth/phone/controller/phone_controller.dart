@@ -9,8 +9,8 @@ class PhoneController extends GetxController {
   String countryCode = '+1';
 
   void onContinue() {
-    // For now, just navigate to OTP
-    Get.toNamed(Routes.OTP);
+    // Navigate to OTP with phone number as argument
+    Get.toNamed(Routes.OTP, arguments: countryCode + phoneController.text);
   }
 
   @override

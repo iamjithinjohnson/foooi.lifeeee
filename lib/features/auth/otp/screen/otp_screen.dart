@@ -11,6 +11,7 @@ class OtpScreen extends GetView<OtpController> {
 
   @override
   Widget build(BuildContext context) {
+    final String phoneNumber = Get.arguments as String? ?? '';
     return Scaffold(
       body: Stack(
         children: [
@@ -35,14 +36,59 @@ class OtpScreen extends GetView<OtpController> {
 
                   // Title
                   Text(
-                    'Verify with OTP sent to\nyour number',
+                    'Verify with OTP',
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
+                  SizedBox(height: 12.h),
+                  if (phoneNumber.isNotEmpty)
+                    Text(
+                      'Sent to $phoneNumber',
+                      style: Theme.of(
+                        context,
+                      ).textTheme.titleMedium?.copyWith(color: Colors.black54),
+                    ),
 
                   SizedBox(height: 40.h),
 
                   // OTP Input
-                  WwPinCodeField(onChanged: (value) {}, length: 6),
+                  WwPinCodeField(
+                    onChanged: (value) {},
+                    length: 6,
+                    pinController: controller.otpController,
+                  ),
+
+                  SizedBox(height: 30.h),
+
+                  // Countdown Timer & Resend
+                  Obx(
+                    () => Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Didn't receive the code? ",
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        if (controller.canResend.value)
+                          GestureDetector(
+                            onTap: controller.resendOtp,
+                            child: Text(
+                              "Resend",
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          )
+                        else
+                          Text(
+                            "00:${controller.timerCount.value.toString().padLeft(2, '0')}",
+                            style: Theme.of(context).textTheme.bodyMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                      ],
+                    ),
+                  ),
 
                   SizedBox(height: 40.h),
 

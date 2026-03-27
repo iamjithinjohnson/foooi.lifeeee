@@ -12,6 +12,9 @@ class ChatBubble extends StatelessWidget {
     if (message.type == 'verse') {
       return _buildVerseCard();
     }
+    if (message.type == 'combined') {
+      return _buildCombinedCard();
+    }
 
     final isAiPart = [
       'encouragement',
@@ -91,6 +94,7 @@ class ChatBubble extends StatelessWidget {
 
     switch (message.type) {
       case 'encouragement':
+      case 'combined':
         icon = Icons.favorite_rounded;
         label = 'A MESSAGE FOR YOU';
         break;
@@ -121,6 +125,75 @@ class ChatBubble extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.black45,
               letterSpacing: 1.0,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCombinedCard() {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 16.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildAiHeader(),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(20.w),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFF9E1),
+              borderRadius: BorderRadius.circular(24.r),
+              border: Border.all(color: const Color(0xFFFFD54F), width: 1.w),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.03),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Encouragement Text
+                Text(
+                  message.text,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    color: const Color(0xFF3F2109),
+                    height: 1.5,
+                  ),
+                ),
+                if (message.verse != null && message.verse!.isNotEmpty) ...[
+                  SizedBox(height: 20.h),
+                  const Divider(color: Color(0xFFFFD54F), thickness: 0.5),
+                  SizedBox(height: 16.h),
+                  // Verse Section
+                  Text(
+                    message.verse!,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xFF3F2109),
+                      height: 1.5,
+                    ),
+                  ),
+                  if (message.reference != null) ...[
+                    SizedBox(height: 12.h),
+                    Text(
+                      message.reference!.toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF3F2109),
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                  ],
+                ],
+              ],
             ),
           ),
         ],

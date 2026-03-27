@@ -24,27 +24,19 @@ class QuickActions extends StatelessWidget {
         SizedBox(height: 16.h),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             _buildActionItem(
               context,
               'Pray\nNow',
               AssetsSvg.prayNow,
-              onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
-            ),
-            _buildActionItem(
-              context,
-              '30-sec Prayer',
-              AssetsSvg.secondsPrayer,
-
-              onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+              onTap: () => Get.toNamed(Routes.PRAYER_SITUATION),
             ),
             _buildActionItem(
               context,
               'Exam Stress',
               AssetsSvg.examStress,
-
-              onTap: () => Get.toNamed(Routes.PRAYER_CONTENT),
+              onTap: () => Get.toNamed(Routes.PRAYER_SITUATION, arguments: {'category': 'Exam Stress'}),
             ),
             _buildActionItem(
               context,

@@ -5,14 +5,14 @@ class PrayerController extends GetxController {
   var selectedTab = 0.obs; // 0 for Practice Hub, 1 for Your Journey
 
   final List<Map<String, String>> categories = [
-    {'title': 'Exam Stress', 'icon': AssetsSvg.examStress},
-    {'title': 'Family Conflict', 'icon': AssetsSvg.familyConflict},
-    {'title': 'Feeling Lonely', 'icon': AssetsSvg.feelingLonely},
-    {'title': 'Fear and Anxiety', 'icon': AssetsSvg.fearAndAnxiety},
+    {'title': 'Financial Issues', 'icon': AssetsSvg.fearAndAnxiety},
+    {'title': 'Relationship Stress', 'icon': AssetsSvg.friendshipDrama},
+    {'title': 'Parenting', 'icon': AssetsSvg.familyConflict},
+    {'title': 'Family', 'icon': AssetsSvg.feelingLonely},
+    {'title': 'Work Stress', 'icon': AssetsSvg.examStress},
     {'title': 'Anger', 'icon': AssetsSvg.anger},
-    {'title': 'Friendship Drama', 'icon': AssetsSvg.friendshipDrama},
-    {'title': 'Temptation', 'icon': AssetsSvg.temptation},
     {'title': 'Sleep & Nightmare', 'icon': AssetsSvg.sleepNightmare},
+    {'title': 'Temptation', 'icon': AssetsSvg.temptation},
   ];
 
   final List<Map<String, dynamic>> journeyItems = [

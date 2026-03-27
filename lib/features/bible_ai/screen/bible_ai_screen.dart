@@ -27,9 +27,7 @@ class BibleAiScreen extends GetView<BibleAiController> {
               Expanded(
                 child: Obx(
                   () {
-                    final messages = controller.messages
-                        .where((m) => m.type != 'prayer' && m.type != 'action')
-                        .toList();
+                    final messages = controller.messages;
                     return messages.isEmpty
                         ? _buildEmptyState()
                         : _buildChatList(messages);

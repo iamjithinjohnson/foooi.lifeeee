@@ -36,23 +36,29 @@ class ListeningStageView extends StatelessWidget {
         const Spacer(),
         _buildNativePulse(),
         const Spacer(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32.w),
-          child: Obx(
-            () => Text(
-              controller.recognizedText.value.isEmpty
-                  ? "Listening..."
-                  : controller.recognizedText.value,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18.sp,
-                fontStyle: FontStyle.italic,
-                color: AppColors.primary,
+        Expanded(
+          flex: 2,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 32.w),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Obx(
+                () => Text(
+                  controller.recognizedText.value.isEmpty
+                      ? "Listening..."
+                      : controller.recognizedText.value,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontStyle: FontStyle.italic,
+                    color: AppColors.primary,
+                  ),
+                ),
               ),
             ),
           ),
         ),
-        SizedBox(height: 40.h),
+        SizedBox(height: 20.h),
         _buildTickButton(),
         SizedBox(height: 32.h),
       ],

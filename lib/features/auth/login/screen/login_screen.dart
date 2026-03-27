@@ -18,8 +18,12 @@ class LoginScreen extends GetView<LoginController> {
         children: [
           // Background Image
           Positioned.fill(
-            // top: -300,
-            child: Image.asset(AssetsImage.bg_1, fit: BoxFit.cover),
+            child: Image.asset(
+              AssetsImage.bg_2,
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.topCenter,
+              cacheWidth: 1000,
+            ),
           ),
 
           // White Shade Gradient
@@ -46,29 +50,20 @@ class LoginScreen extends GetView<LoginController> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Spacer(flex: 2),
+                  // SizedBox(height: 60.h),
 
                   // Logo
                   SvgPicture.asset(AssetsSvg.appIcon),
 
-                  // Text(
-                  //   'foi',
-                  //   style: TextStyle(
-                  //     fontSize: 80.sp,
-                  //     fontWeight: FontWeight.w900,
-                  //     color: const Color(0xFF13768E),
-                  //     height: 1,
-                  //     letterSpacing: -2,
-                  //   ),
-                  // ),
                   SizedBox(height: 20.h),
 
                   // Header Text
                   Text(
-                    'Explore faith\nwith honesty.\nNo judgment.',
+                    'Explore faith with wellness,\ninspiration and practical\nlife guidance.',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displayLarge,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
 
                   SizedBox(height: 10.h),

@@ -72,4 +72,10 @@ class SpeakToGodController extends GetxController {
     stage.value = SpeakStage.listening;
     startListening();
   }
+
+  @override
+  void onClose() {
+    _speech.stop();
+    super.onClose();
+  }
 }

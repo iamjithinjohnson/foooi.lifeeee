@@ -5,7 +5,6 @@ import '../controller/prayer_controller.dart';
 import '../widgets/prayer_header.dart';
 import '../widgets/category_grid.dart';
 import '../widgets/practice_tool_grid.dart';
-import '../widgets/facing_today_section.dart';
 
 // import '../widgets/your_journey_view.dart';
 
@@ -103,7 +102,7 @@ class PrayerScreen extends GetView<PrayerController> {
         // SizedBox(height: 32.h),
         // const FeelingBasedSection(),
         // SizedBox(height: 32.h),
-        const FacingTodaySection(),
+        // const FacingTodaySection(),
         SizedBox(height: 100.h),
       ],
     );

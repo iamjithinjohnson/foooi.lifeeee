@@ -8,12 +8,16 @@ class SetupProfileController extends GetxController {
   final pageController = PageController();
   
   var currentStep = 0.obs;
-  final int totalSteps = 10;
+  final int totalSteps = 6; // Reduced after removing Church screen
 
-  var selectedAgeGroup = ''.obs;
+  var selectedGuidance = ''.obs;
+  var selectedDate = ''.obs;
+  var selectedDay = ''.obs;
+  var selectedMonth = ''.obs;
+  var selectedYear = ''.obs;
   var selectedGender = ''.obs;
   var selectedDenomination = ''.obs;
-  var selectedBibleVersion = ''.obs;
+  var isProtestantExpanded = false.obs; // For sub-options visibility
   var selectedStressLevel = ''.obs;
   var selectedGoals = <String>[].obs;
 
@@ -30,7 +34,12 @@ class SetupProfileController extends GetxController {
 
   void nextStep() {
     if (currentStep.value < totalSteps - 1) {
-      currentStep.value++;
+      if (currentStep.value == 1 && selectedGuidance.value != 'I’d like to choose a specific denomination') {
+        // Skip Denomination (Step 2) if not Customize
+        currentStep.value = 3;
+      } else {
+        currentStep.value++;
+      }
       pageController.animateToPage(
         currentStep.value,
         duration: const Duration(milliseconds: 300),
@@ -41,7 +50,12 @@ class SetupProfileController extends GetxController {
 
   void previousStep() {
     if (currentStep.value > 0) {
-      currentStep.value--;
+      if (currentStep.value == 3 && selectedGuidance.value != 'I’d like to choose a specific denomination') {
+        // Go back to Guidance from Goals if Denomination was skipped
+        currentStep.value = 1;
+      } else {
+        currentStep.value--;
+      }
       pageController.animateToPage(
         currentStep.value,
         duration: const Duration(milliseconds: 300),

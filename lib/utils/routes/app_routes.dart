@@ -30,4 +30,5 @@ class Routes {
   static const String BUSINESS_NETWORK = '/business-network';
   static const String EDIT_PROFILE = '/edit-profile';
   static const String SPEAK_TO_GOD = '/speak-to-god';
+  static const String PRAYER_SITUATION = '/prayer-situation';
 }

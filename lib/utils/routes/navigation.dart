@@ -2,6 +2,7 @@ import 'package:foi/features/prayer/screen/journey_detail_screen.dart';
 import 'package:foi/features/prayer/screen/music_list_screen.dart';
 import 'package:foi/features/prayer/screen/audio_player_screen.dart';
 import 'package:foi/features/prayer/screen/prayer_content_screen.dart';
+import 'package:foi/features/prayer/screen/prayer_situation_screen.dart';
 import 'package:foi/features/grow/screen/grow_screen.dart';
 import 'package:foi/features/morning_night_routine/screen/morning_routine_screen.dart';
 import 'package:foi/features/morning_night_routine/screen/night_routine_screen.dart';
@@ -132,6 +133,11 @@ class Nav {
     GetPage(
       name: Routes.PRAYER_CONTENT,
       page: () => const PrayerContentScreen(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: Routes.PRAYER_SITUATION,
+      page: () => const PrayerSituationScreen(),
       middlewares: [AuthMiddleware()],
     ),
     GetPage(
