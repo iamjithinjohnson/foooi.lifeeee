@@ -38,7 +38,7 @@ class ProfileScreen extends GetView<ProfileController> {
       height: 380.h,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AssetsImage.bg_1),
+          image: AssetImage(AssetsImage.bg_2),
           fit: BoxFit.cover,
         ),
       ),
@@ -104,14 +104,20 @@ class ProfileScreen extends GetView<ProfileController> {
             Obx(
               () => Text(
                 controller.church.value,
-                style: TextStyle(fontSize: 14.sp, color: const Color(0xFF64748B)),
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: const Color(0xFF64748B),
+                ),
               ),
             ),
             SizedBox(height: 4.h),
             Obx(
               () => Text(
                 controller.bio.value,
-                style: TextStyle(fontSize: 12.sp, color: const Color(0xFF94A3B8)),
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  color: const Color(0xFF94A3B8),
+                ),
               ),
             ),
           ],

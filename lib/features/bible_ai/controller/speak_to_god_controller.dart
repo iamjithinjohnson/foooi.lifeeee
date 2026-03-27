@@ -23,8 +23,23 @@ class SpeakToGodController extends GetxController {
   }
 
   void _initSpeech() async {
-    speechEnabled.value = await _speech.initialize();
-    startListening();
+    try {
+      speechEnabled.value = await _speech.initialize(
+        onError: (error) => print('Speech Error: $error'),
+        onStatus: (status) => print('Speech Status: $status'),
+      );
+      if (!speechEnabled.value) {
+        Get.snackbar(
+          "Speech Not Available",
+          "Ensure microphone permissions are granted and try again.",
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      } else {
+        startListening();
+      }
+    } catch (e) {
+      print('Speech Init Exception: $e');
+    }
   }
 
   void startListening() async {

@@ -55,7 +55,17 @@ class BibleAiController extends GetxController {
   }
 
   void _initSpeech() async {
-    speechEnabled.value = await _speech.initialize();
+    try {
+      speechEnabled.value = await _speech.initialize(
+        onError: (error) => debugPrint('Bible AI Speech Error: $error'),
+        onStatus: (status) => debugPrint('Bible AI Speech Status: $status'),
+      );
+      if (!speechEnabled.value) {
+        debugPrint('Speech Not Available: initialization returned false');
+      }
+    } catch (e) {
+      debugPrint('Speech Init Exception: $e');
+    }
   }
 
   void startListening() async {
