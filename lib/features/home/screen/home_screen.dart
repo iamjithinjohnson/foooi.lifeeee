@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foi/features/home/widgets/continue_path_card.dart';
 import 'package:foi/features/home/widgets/daily_checkin.dart';
 import 'package:foi/features/home/widgets/home_header.dart';
-import 'package:foi/features/home/widgets/podcasts_section.dart';
 import 'package:foi/features/home/widgets/prayer_section.dart';
 import 'package:foi/features/home/widgets/prayer_streak.dart';
 import 'package:foi/features/home/widgets/quick_actions.dart';

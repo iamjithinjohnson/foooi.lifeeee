@@ -179,7 +179,9 @@ class SetupProfileScreen extends GetView<SetupProfileController> {
               items: ['Male', 'Female', 'Other'],
             ),
             SizedBox(height: 20.h),
-            _buildFieldLabel('How are your stress levels?'),
+            _buildFieldLabel(
+              'How would you describe your happiness these days?',
+            ),
             Row(
               children: ['Great', 'Moderate', 'Low'].map((level) {
                 return Expanded(
