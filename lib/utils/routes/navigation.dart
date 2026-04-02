@@ -49,6 +49,9 @@ import '../../features/community/screen/incubation_innovation_screen.dart';
 import '../../features/community/screen/business_network_screen.dart';
 import '../../features/profile/screen/edit_profile_screen.dart';
 import 'package:foi/features/grow/screen/reading_session_screen.dart';
+import 'package:foi/features/grow/screen/template_selection_screen.dart';
+import 'package:foi/features/grow/screen/routine_details_screen.dart';
+import 'package:foi/features/grow/screen/create_custom_routine_screen.dart';
 import 'app_routes.dart';
 import 'auth_middleware.dart';
 
@@ -234,6 +237,24 @@ class Nav {
       name: Routes.EDIT_PROFILE,
       page: () => const EditProfileScreen(),
       binding: ProfileBinding(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: Routes.TEMPLATE_SELECTION,
+      page: () => const TemplateSelectionScreen(),
+      binding: GrowBinding(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: Routes.ROUTINE_DETAILS,
+      page: () => const RoutineDetailsScreen(),
+      binding: GrowBinding(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: Routes.CREATE_CUSTOM_ROUTINE,
+      page: () => const CreateCustomRoutineScreen(),
+      binding: GrowBinding(),
       middlewares: [AuthMiddleware()],
     ),
   ];

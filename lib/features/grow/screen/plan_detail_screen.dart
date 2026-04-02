@@ -12,7 +12,9 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
   @override
   Widget build(BuildContext context) {
     final String title = Get.arguments?['title'] ?? '7-Day Peace Plan';
-    final String subtitle = Get.arguments?['subtitle'] ?? 'Find inner peace through daily scripture on God\'s calming presence.';
+    final String subtitle =
+        Get.arguments?['subtitle'] ??
+        'Find inner peace through daily scripture on God\'s calming presence.';
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -24,14 +26,16 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
             _buildTitleSection(title, subtitle),
             SizedBox(height: 16.h),
             Expanded(
-              child: Obx(() => ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
-                itemCount: controller.sessions.length,
-                itemBuilder: (context, index) {
-                  final session = controller.sessions[index];
-                  return _buildJourneyItem(context, session, index);
-                },
-              )),
+              child: Obx(
+                () => ListView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  itemCount: controller.sessions.length,
+                  itemBuilder: (context, index) {
+                    final session = controller.sessions[index];
+                    return _buildJourneyItem(context, session, index);
+                  },
+                ),
+              ),
             ),
           ],
         ),
@@ -50,7 +54,11 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
             color: Color(0xFFF1F5F9),
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.arrow_back, color: const Color(0xFF1E293B), size: 20.w),
+          child: Icon(
+            Icons.arrow_back,
+            color: const Color(0xFF1E293B),
+            size: 20.w,
+          ),
         ),
       ),
     );
@@ -84,18 +92,20 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
     );
   }
 
-  Widget _buildJourneyItem(BuildContext context, PlanSession session, int index) {
+  Widget _buildJourneyItem(
+    BuildContext context,
+    PlanSession session,
+    int index,
+  ) {
     final bool isLast = index == controller.sessions.length - 1;
-    
+
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildProgressLine(session.status, isLast),
           SizedBox(width: 16.w),
-          Expanded(
-            child: _buildSessionCard(context, session, index),
-          ),
+          Expanded(child: _buildSessionCard(context, session, index)),
         ],
       ),
     );
@@ -104,9 +114,15 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
   Widget _buildProgressLine(SessionStatus status, bool isLast) {
     Color color;
     switch (status) {
-      case SessionStatus.completed: color = AppColors.success; break;
-      case SessionStatus.active: color = AppColors.primary; break;
-      case SessionStatus.locked: color = const Color(0xFFE2E8F0); break;
+      case SessionStatus.completed:
+        color = AppColors.success;
+        break;
+      case SessionStatus.active:
+        color = AppColors.primary;
+        break;
+      case SessionStatus.locked:
+        color = const Color(0xFFE2E8F0);
+        break;
     }
 
     return Column(
@@ -123,51 +139,73 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
             child: status == SessionStatus.completed
                 ? Icon(Icons.check, color: Colors.white, size: 16.w)
                 : status == SessionStatus.active
-                    ? Container(width: 8.w, height: 8.w, decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle))
-                    : Icon(Icons.lock, color: color, size: 14.w),
+                ? Container(
+                    width: 8.w,
+                    height: 8.w,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                  )
+                : Icon(Icons.lock, color: color, size: 14.w),
           ),
         ),
         if (!isLast)
           Expanded(
-            child: Container(
-              width: 2.w,
-              color: color.withOpacity(0.3),
-            ),
+            child: Container(width: 2.w, color: color.withOpacity(0.3)),
           ),
       ],
     );
   }
 
-  Widget _buildSessionCard(BuildContext context, PlanSession session, int index) {
+  Widget _buildSessionCard(
+    BuildContext context,
+    PlanSession session,
+    int index,
+  ) {
     final bool isActive = session.status == SessionStatus.active;
     final bool isCompleted = session.status == SessionStatus.completed;
     final bool isLocked = session.status == SessionStatus.locked;
 
     return GestureDetector(
-      onTap: isLocked ? null : () async {
-        final result = await Get.toNamed(
-          Routes.READING_SESSION,
-          arguments: {'session': session},
-        );
-        if (result == true) {
-          controller.completeSession(index);
-          _showSuccessMessage(session.title);
-        }
-      },
+      onTap: isLocked
+          ? null
+          : () async {
+              final result = await Get.toNamed(
+                Routes.READING_SESSION,
+                arguments: {'session': session},
+              );
+              if (result == true) {
+                controller.completeSession(index);
+                _showSuccessMessage(session.title);
+              }
+            },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         margin: EdgeInsets.only(bottom: 24.h),
         padding: EdgeInsets.all(16.w),
         decoration: BoxDecoration(
-          color: isActive ? Colors.white : (isLocked ? const Color(0xFFF8FAFC) : Colors.white),
+          color: isActive
+              ? Colors.white
+              : (isLocked ? const Color(0xFFF8FAFC) : Colors.white),
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
-            color: isActive ? AppColors.primary : (isLocked ? const Color(0xFFE2E8F0) : AppColors.success.withOpacity(0.2)),
+            color: isActive
+                ? AppColors.primary
+                : (isLocked
+                      ? const Color(0xFFE2E8F0)
+                      : AppColors.success.withOpacity(0.2)),
             width: isActive ? 2.w : 1.w,
           ),
-          boxShadow: isActive ? [
-            BoxShadow(color: AppColors.primary.withOpacity(0.1), blurRadius: 15, offset: const Offset(0, 8)),
-          ] : [],
+          boxShadow: isActive
+              ? [
+                  BoxShadow(
+                    color: AppColors.primary.withOpacity(0.1),
+                    blurRadius: 15,
+                    offset: const Offset(0, 8),
+                  ),
+                ]
+              : [],
         ),
         child: Row(
           children: [
@@ -175,13 +213,19 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
               width: 56.w,
               height: 56.w,
               decoration: BoxDecoration(
-                color: isLocked ? const Color(0xFFF1F5F9) : (isActive ? AppColors.primary.withOpacity(0.1) : AppColors.success.withOpacity(0.1)),
+                color: isLocked
+                    ? const Color(0xFFF1F5F9)
+                    : (isActive
+                          ? AppColors.primary.withOpacity(0.1)
+                          : AppColors.success.withOpacity(0.1)),
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: Icon(
-                session.icon, 
-                color: isLocked ? const Color(0xFF94A3B8) : (isActive ? AppColors.primary : AppColors.success),
-                size: 28.w
+                session.icon,
+                color: isLocked
+                    ? const Color(0xFF94A3B8)
+                    : (isActive ? AppColors.primary : AppColors.success),
+                size: 28.w,
               ),
             ),
             SizedBox(width: 16.w),
@@ -196,20 +240,31 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.bold,
-                          color: isActive ? AppColors.primary : (isLocked ? const Color(0xFF94A3B8) : AppColors.success),
+                          color: isActive
+                              ? AppColors.primary
+                              : (isLocked
+                                    ? const Color(0xFF94A3B8)
+                                    : AppColors.success),
                         ),
                       ),
                       if (isActive) ...[
                         SizedBox(width: 8.w),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 6.w,
+                            vertical: 2.h,
+                          ),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
                             borderRadius: BorderRadius.circular(4.r),
                           ),
                           child: Text(
                             'TODAY 🌿',
-                            style: TextStyle(fontSize: 9.sp, fontWeight: FontWeight.bold, color: Colors.white),
+                            style: TextStyle(
+                              fontSize: 9.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],
@@ -221,20 +276,25 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
-                      color: isLocked ? const Color(0xFF94A3B8) : const Color(0xFF1E293B),
-                      decoration: isCompleted ? TextDecoration.lineThrough : null,
+                      color: isLocked
+                          ? const Color(0xFF94A3B8)
+                          : const Color(0xFF1E293B),
+                      decoration: isCompleted
+                          ? TextDecoration.lineThrough
+                          : null,
                     ),
                   ),
                 ],
               ),
             ),
             if (!isLocked)
-              Icon(Icons.chevron_right, color: isActive ? AppColors.primary : const Color(0xFFCBD5E1), size: 20.w)
+              Icon(
+                Icons.chevron_right,
+                color: isActive ? AppColors.primary : const Color(0xFFCBD5E1),
+                size: 20.w,
+              )
             else
-              Text(
-                '🔒',
-                style: TextStyle(fontSize: 14.sp),
-              ),
+              Text('🔒', style: TextStyle(fontSize: 14.sp)),
           ],
         ),
       ),
@@ -253,7 +313,11 @@ class PlanDetailScreen extends GetView<PlanDetailController> {
       margin: EdgeInsets.all(16.w),
       borderRadius: 12.r,
       boxShadows: [
-        BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 4)),
+        BoxShadow(
+          color: Colors.black.withOpacity(0.1),
+          blurRadius: 10,
+          offset: const Offset(0, 4),
+        ),
       ],
     );
   }

@@ -122,7 +122,9 @@ class _ReadingSessionScreenState extends State<ReadingSessionScreen>
                           text: 'Mark as Completed',
                           onPressed: () {
                             flutterTts.stop();
-                            Get.back(result: true); // Return true to signal completion
+                            Get.back(
+                              result: true,
+                            ); // Return true to signal completion
                           },
                         ),
                         SizedBox(height: 32.h),
@@ -155,7 +157,11 @@ class _ReadingSessionScreenState extends State<ReadingSessionScreen>
                 color: Color(0xFFF1F5F9),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_back, color: const Color(0xFF1E293B), size: 18.w),
+              child: Icon(
+                Icons.arrow_back,
+                color: const Color(0xFF1E293B),
+                size: 18.w,
+              ),
             ),
           ),
           GestureDetector(
@@ -164,7 +170,9 @@ class _ReadingSessionScreenState extends State<ReadingSessionScreen>
                 flutterTts.stop();
                 setState(() => _isSpeaking = false);
               } else {
-                flutterTts.speak(session.description + ". " + session.scripture);
+                flutterTts.speak(
+                  session.description + ". " + session.scripture,
+                );
               }
             },
             child: Container(
@@ -173,7 +181,10 @@ class _ReadingSessionScreenState extends State<ReadingSessionScreen>
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20.r),
                 boxShadow: [
-                  BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                  ),
                 ],
               ),
               child: Row(
@@ -184,7 +195,10 @@ class _ReadingSessionScreenState extends State<ReadingSessionScreen>
                     color: _isSpeaking ? Colors.blue : Colors.black,
                   ),
                   SizedBox(width: 8.w),
-                  Text(_isSpeaking ? 'Listening...' : 'Read Aloud', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                    _isSpeaking ? 'Listening...' : 'Read Aloud',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),

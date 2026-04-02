@@ -31,4 +31,7 @@ class Routes {
   static const String EDIT_PROFILE = '/edit-profile';
   static const String SPEAK_TO_GOD = '/speak-to-god';
   static const String PRAYER_SITUATION = '/prayer-situation';
+  static const String TEMPLATE_SELECTION = '/template-selection';
+  static const String ROUTINE_DETAILS = '/routine-details';
+  static const String CREATE_CUSTOM_ROUTINE = '/create-custom-routine';
 }
